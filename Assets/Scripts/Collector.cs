@@ -11,7 +11,6 @@ public class Collector : MonoBehaviour
         Collectible collectible = other.gameObject.GetComponent<Collectible>();
         if (collectible != null && !collectible.isCollected())
         {
-            print("detected");
             if (Input.GetButtonDown("Collect"))
             {
                 print("collect");
