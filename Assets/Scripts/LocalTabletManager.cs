@@ -42,6 +42,9 @@ public class LocalTabletManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if ( Collector.totalCollected == 1 && Input.GetButtonDown("Tablet"))
+        {
+            changeLogText(0);
+        }
     }
 }

@@ -117,8 +117,11 @@ public class TabletController : MonoBehaviour
         {
             SwitchTabletState();
         }
+
+        // Possible actions from Tablet Front Status
         if (tabletState == TabletState.FRONT)
-        {
+        {   
+            // Change columns
             if (Input.GetKeyDown("d"))
             {
                 SwitchTabletFrontState("right");
@@ -126,6 +129,19 @@ public class TabletController : MonoBehaviour
             if (Input.GetKeyDown("q"))
             {
                 SwitchTabletFrontState("left");
+            }
+
+            // Possible actions from Tablet Front Log Status
+            if (tabletFrontState == TabletFrontState.LOGS)
+            {
+                if (Input.GetKeyDown("s"))
+                {
+                    SwitchCurLogIndex("down");
+                }
+                if (Input.GetKeyDown("z"))
+                {
+                    SwitchCurLogIndex("up");
+                }
             }
         }
     }
