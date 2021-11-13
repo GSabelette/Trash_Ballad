@@ -16,7 +16,7 @@ public class Detector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float closest = collider.radius;
+        float closest = float.PositiveInfinity;
 
         Collider[] contactList = Physics.OverlapSphere(collider.bounds.center, collider.radius);
 
