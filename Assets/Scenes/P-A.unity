@@ -130,9 +130,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: name
+      value: "D\xE9bris 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: year
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: description
+      value: "un premier d\xE9bris"
+      objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
       value: Collectible
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516038603276485605, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: outlineColor.b
+      value: 0.32104817
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516038603276485605, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: outlineColor.g
+      value: 0.2941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516038603276485605, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: outlineColor.r
+      value: 0.9607843
       objectReference: {fileID: 0}
     - target: {fileID: 8330730503275010766, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_RootOrder
@@ -10192,6 +10216,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: name
+      value: "D\xE9bris 2"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: year
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: description
+      value: "un deuxi\xE8me d\xE9bri"
+      objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
       value: Collectible (1)
