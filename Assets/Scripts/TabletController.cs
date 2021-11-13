@@ -32,13 +32,16 @@ public class TabletController : MonoBehaviour
             tabletState = TabletState.SIDE;
             tabletModelFront.SetActive(false);
             tabletModelSide.SetActive(true);
-            tabletFrontState = TabletFrontState.LOGS;
         }
         else
         {
             tabletState = TabletState.FRONT;
             tabletModelSide.SetActive(false);
             tabletModelFront.SetActive(true);
+
+            tabletFrontState = TabletFrontState.LOGS;
+            tabletModelFront.GetComponent<LocalTabletManager>().changeSprite(tabletFrontState);
+            tabletModelFront.GetComponent<LocalTabletManager>().changeLogText(curLogIndex);
         }
     }
 
@@ -67,8 +70,12 @@ public class TabletController : MonoBehaviour
             }
         }
         tabletModelFront.GetComponent<LocalTabletManager>().changeSprite(tabletFrontState);
+        if (tabletFrontState == TabletFrontState.LOGS)
+        {
+            tabletModelFront.GetComponent<LocalTabletManager>().changeLogText(curLogIndex);
+        }
     }
-    
+
     private void SwitchCurLogIndex(string direction)
     {
         int maxIndex = Collector.totalCollected;
@@ -124,10 +131,18 @@ public class TabletController : MonoBehaviour
             // Change columns
             if (Input.GetKeyDown("d"))
             {
+                if (tabletFrontState == TabletFrontState.LOGS)
+                {
+                    tabletModelFront.GetComponent<LocalTabletManager>().clearLogText();
+                }
                 SwitchTabletFrontState("right");
             }
             if (Input.GetKeyDown("q"))
             {
+                if (tabletFrontState == TabletFrontState.LOGS)
+                {
+                    tabletModelFront.GetComponent<LocalTabletManager>().clearLogText();
+                }
                 SwitchTabletFrontState("left");
             }
 
