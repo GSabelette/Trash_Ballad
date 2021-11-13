@@ -107,6 +107,7 @@ public class TabletController : MonoBehaviour
         tabletFrontState = TabletFrontState.LOGS;
         tabletModelFront.SetActive(false);
         tabletModelSide.SetActive(true);
+        curLogIndex = 0;
     }
 
     // Update is called once per frame

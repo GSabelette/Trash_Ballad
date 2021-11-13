@@ -26,14 +26,17 @@ public class LocalTabletManager : MonoBehaviour
         image.sprite = tabletFrontStateMap[tabletFrontState];
     }
 
-    public void reorderLogList()
+    public static void reorderLogList()
     {
         collectibleDataList.Sort((data1, data2) => data1.year.CompareTo(data2.year));
     }
 
     public void changeLogText(int curLogIndex)
     {
-        logText.text = collectibleDataList[curLogIndex].year.ToString() + " : " + collectibleDataList[curLogIndex].description;
+        if (collectibleDataList.Count != 0)
+        {
+            logText.text = collectibleDataList[curLogIndex].year.ToString() + " : " + collectibleDataList[curLogIndex].description;
+        }
     }
 
     // Update is called once per frame
