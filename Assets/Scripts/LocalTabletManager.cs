@@ -38,13 +38,14 @@ public class LocalTabletManager : MonoBehaviour
         {
             for (int i = 0; i < Collector.totalCollected; i++)
             {
+                CollectibleData curData = collectibleDataList[i];
                 if (i != curLogIndex)
                 {
-                    totalString += "Log " + i.ToString() + " | year " + collectibleDataList[i].year + "\n";
+                    totalString += "Log " + i.ToString() + " | year " + curData.year + "\n";
                 }
                 if (i == curLogIndex)
                 {
-                    totalString += "Log " + i.ToString() + " | year " + collectibleDataList[i].year + " : " + collectibleDataList[i].description + "\n";
+                    totalString += "Log " + i.ToString() + " | year " + curData.year + " : " + curData.description + "\n";
                 }
                 
             }
