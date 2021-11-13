@@ -19,7 +19,7 @@ public class TrashpileController : MonoBehaviour
         models.Add(model1);
         models.Add(model2);
 
-        models[0].setActive(true);
+        models[0].SetActive(true);
         for (var i = 1; i < totalModels; i++)
         {
             models[i].SetActive(false);
