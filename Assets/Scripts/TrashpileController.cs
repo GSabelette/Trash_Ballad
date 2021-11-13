@@ -9,12 +9,12 @@ public class TrashpileController : MonoBehaviour
     public GameObject model2;
 
     private List<GameObject> models = new List<GameObject>(); 
-    private int modelNumber;
+    //private int modelNumber;
     private int totalModels = 3;
     // Start is called before the first frame update
     void Start()
     {
-        modelNumber = 0;  
+        //modelNumber = 0;  
         models.Add(model0);
         models.Add(model1);
         models.Add(model2);
