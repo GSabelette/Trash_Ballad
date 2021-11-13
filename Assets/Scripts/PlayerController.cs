@@ -40,7 +40,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (TabletController.tabletState == TabletController.TabletState.SIDE)
+        {
+            Movement();
+        } 
     }
 
     void Movement()
