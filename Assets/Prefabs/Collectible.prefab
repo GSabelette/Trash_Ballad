@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5516038603276485605}
   m_Layer: 0
   m_Name: Collectible
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3310943669300465300}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -3835237599949242814, guid: e7acdf653d483aa459d437850eb27c06, type: 3}
 --- !u!23 &4724145948123450080
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 59491f7eda4369f459fbf67bf5e5946c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,7 +111,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &761708797388277230
 MonoBehaviour:
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 1
-  outlineColor: {r: 0.9056604, g: 0.12388753, b: 0.12388753, a: 1}
+  outlineColor: {r: 0.29503384, g: 0.9622642, b: 0.8740735, a: 1}
   outlineWidth: 5
   precomputeOutline: 1
   bakeKeys:

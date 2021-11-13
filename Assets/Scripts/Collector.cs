@@ -18,6 +18,8 @@ public class Collector : MonoBehaviour
                 CollectibleData data = dataManager.GetData();
                 print(data.name);
                 IncrementCount();
+                LocalTabletManager.collectibleDataList.Add(data);
+                LocalTabletManager.reorderLogList();
 
             }
         }
