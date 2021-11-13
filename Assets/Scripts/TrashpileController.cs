@@ -34,6 +34,7 @@ public class TrashpileController : MonoBehaviour
                 models[i].SetActive(false);
             }
             else {
+                print("Switched for model " + i);
                 models[i].SetActive(true);
             }
         }
