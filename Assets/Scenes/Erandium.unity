@@ -226,6 +226,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: name
+      value: Test
+      objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
       value: Collectible
