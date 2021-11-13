@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashBal_FluffyPlant_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92e5d3ef0eb6a844ead48962719f896a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342485223134590098, guid: 92e5d3ef0eb6a844ead48962719f896a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6747318744623358435, guid: 92e5d3ef0eb6a844ead48962719f896a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -62,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 7884898235651696811, guid: 92e5d3ef0eb6a844ead48962719f896a, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300854857787019999, guid: 92e5d3ef0eb6a844ead48962719f896a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9013922684021105450, guid: 92e5d3ef0eb6a844ead48962719f896a, type: 3}
       propertyPath: m_LocalPosition.y
