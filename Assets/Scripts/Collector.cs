@@ -16,7 +16,6 @@ public class Collector : MonoBehaviour
                 collectible.SetCollected();
                 CollectibleDataManager dataManager = other.gameObject.GetComponent<CollectibleDataManager>();
                 CollectibleData data = dataManager.GetData();
-                print("collected");
                 print(data.name);
                 IncrementCount();
 

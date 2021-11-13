@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3650897051231349327
+--- !u!1001 &9015561685173944188
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -12,8 +12,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25,11 +37,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
       propertyPath: m_LocalRotation.y
@@ -37,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -55,25 +67,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashBal_Rock-medium_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
---- !u!1 &4497968305665431326 stripped
+--- !u!1 &8204674822612386349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
-  m_PrefabInstance: {fileID: 3650897051231349327}
+  m_PrefabInstance: {fileID: 9015561685173944188}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &2696251170729031371 stripped
+--- !u!23 &7700064887212909560 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
-  m_PrefabInstance: {fileID: 3650897051231349327}
+  m_PrefabInstance: {fileID: 9015561685173944188}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &5619982278964538246
+--- !u!64 &2210846051544221109
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4497968305665431326}
+  m_GameObject: {fileID: 8204674822612386349}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -81,22 +97,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7190783638890791778, guid: 59178befcc87ae646a3a9308bf9ea280, type: 3}
---- !u!205 &2689769328598716561
+--- !u!205 &5663990030274729302
 LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4497968305665431326}
+  m_GameObject: {fileID: 8204674822612386349}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.0033267755, y: 0.0052583274, z: 0.012287216}
-  m_Size: 0.0395797
+  m_LocalReferencePoint: {x: 0.3326776, y: 1.228722, z: -0.5258328}
+  m_Size: 3.9579713
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.07555173
+  - screenRelativeHeight: 0.05540625
     fadeTransitionWidth: 0
     renderers:
-    - renderer: {fileID: 2696251170729031371}
+    - renderer: {fileID: 7700064887212909560}
   m_Enabled: 1
