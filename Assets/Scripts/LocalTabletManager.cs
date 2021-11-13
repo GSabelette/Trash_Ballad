@@ -33,10 +33,28 @@ public class LocalTabletManager : MonoBehaviour
 
     public void changeLogText(int curLogIndex)
     {
+        string totalString = "";
         if (collectibleDataList.Count != 0)
         {
-            logText.text = collectibleDataList[curLogIndex].year.ToString() + " : " + collectibleDataList[curLogIndex].description;
+            for (int i = 0; i < Collector.totalCollected; i++)
+            {
+                if (i != curLogIndex)
+                {
+                    totalString += "Log " + i.ToString() + " | year " + collectibleDataList[i].year + "\n";
+                }
+                if (i == curLogIndex)
+                {
+                    totalString += "Log " + i.ToString() + " | year " + collectibleDataList[i].year + " : " + collectibleDataList[i].description + "\n";
+                }
+                
+            }
+            logText.text = totalString;
         }
+    }
+
+    public void clearLogText()
+    {
+        logText.text = "";
     }
 
     // Update is called once per frame
