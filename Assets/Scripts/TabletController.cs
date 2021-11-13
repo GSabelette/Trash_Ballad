@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class TabletController : MonoBehaviour
 {
+
     public enum TabletState
     {
         SIDE,
         FRONT
     };
 
+    public enum TabletFrontState
+    {
+        LOGS,
+        INVENTORY,
+        SHIP
+    };  
+
     public static TabletState tabletState;
-    private GameObject tabletModelSide;
-    private GameObject tabletModelFront;
+    public static TabletFrontState tabletFrontState;
+    [SerializeField] private GameObject tabletModelSide;
+    [SerializeField] private GameObject tabletModelFront;
 
     private void SwitchTabletState()
     {
@@ -21,6 +30,7 @@ public class TabletController : MonoBehaviour
             tabletState = TabletState.SIDE;
             tabletModelFront.SetActive(false);
             tabletModelSide.SetActive(true);
+            tabletFrontState = TabletFrontState.LOGS;
         }
         else
         {
@@ -29,10 +39,39 @@ public class TabletController : MonoBehaviour
             tabletModelFront.SetActive(true);
         }
     }
+
+    private void SwitchTabletFrontState(string direction)
+    {   
+        if (direction.Equals("right"))
+        {
+            if (tabletFrontState == TabletFrontState.LOGS || tabletFrontState == TabletFrontState.INVENTORY)
+            {
+                tabletFrontState++;
+            }
+            else
+            {
+                tabletFrontState = TabletFrontState.LOGS;
+            }
+        }
+        if (direction.Equals("left"))
+        {
+            if (tabletFrontState == TabletFrontState.INVENTORY || tabletFrontState == TabletFrontState.SHIP)
+            {
+                tabletFrontState--;
+            }
+            else
+            {
+                tabletFrontState = TabletFrontState.SHIP;
+            }
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
         tabletState = TabletState.SIDE;
+        tabletFrontState = TabletFrontState.LOGS;
+        tabletModelFront.SetActive(false);
+        tabletModelSide.SetActive(true);
     }
 
     // Update is called once per frame
@@ -41,6 +80,17 @@ public class TabletController : MonoBehaviour
         if (Input.GetButtonDown("Tablet"))
         {
             SwitchTabletState();
+        }
+        if (tabletState == TabletState.FRONT)
+        {
+            if (Input.GetKeyDown("d"))
+            {
+                SwitchTabletFrontState("right");
+            }
+            if (Input.GetKeyDown("q"))
+            {
+                SwitchTabletFrontState("left");
+            }
         }
     }
 }
