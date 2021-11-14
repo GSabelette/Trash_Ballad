@@ -74,11 +74,19 @@ public class TabletController : MonoBehaviour
         {
             tabletModelFront.GetComponent<LocalTabletManager>().changeLogText(curLogIndex);
         }
+        if (tabletFrontState == TabletFrontState.SHIP)
+        {
+            LocalTabletManager.shipImage.enabled = true;
+        }
+        else
+        {
+            LocalTabletManager.shipImage.enabled = false;
+        }
     }
 
     private void SwitchCurLogIndex(string direction)
     {
-        int maxIndex = Collector.totalCollected;
+        int maxIndex = LocalTabletManager.collectibleDataList.Count;
         if (maxIndex != 0)
         {
             if (direction.Equals("up"))
