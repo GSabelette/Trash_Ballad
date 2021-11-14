@@ -289,15 +289,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: name
-      value: Test2
+      value: 2058
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: year
-      value: 3
+      value: 2058
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
-      value: Test333333333333333333333333333333333333333333
+      value: "Aucune des exp\xE9riences sur la terraformation n\u2019a \xE9t\xE9
+        fructueuse. Les donn\xE9es obtenues ne correspondent toujours pas aux mod\xE8les
+        \xE9tablis et je n\u2019obtiens aucun r\xE9sultat probant. Il y a encore
+        beaucoup de choses que nous ignorons sur la plan\xE8te rouge. Fin de rapport."
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -367,11 +370,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: year
-      value: 1
+      value: 2045
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
-      value: Test1111111111111111111111111111111111111111111111
+      value: "Ici le commandant Keller. Nous pr\xE9parons la premi\xE8re mission
+        humaine vers Mars. C\u2019est un moment historique ! Ceci est une br\xE8ve
+        routine de v\xE9rification du mat\xE9riel avant le d\xE9marrage. Tout \xE0
+        l\u2019air parfaitement fonctionnel. Fin de rapport."
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -949,6 +955,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1003122363270562148, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003122363270562155, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_fontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003122363270562155, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f18476db00c1b77499cb7e806eb9f046, type: 2}
+    - target: {fileID: 1003122363270562155, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003122363270562155, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6072393974387502907, guid: f18476db00c1b77499cb7e806eb9f046, type: 2}
     - target: {fileID: 1003122363823985503, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
       propertyPath: m_Name
       value: NewPlayer
@@ -997,6 +1023,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1003122364152029071, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003122364562046180, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003122365117370590, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_fontSize
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003122365117370590, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f18476db00c1b77499cb7e806eb9f046, type: 2}
+    - target: {fileID: 1003122365117370590, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003122365117370590, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6072393974387502907, guid: f18476db00c1b77499cb7e806eb9f046, type: 2}
+    - target: {fileID: 1003122365117370591, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
 --- !u!1001 &1777396140
@@ -1012,11 +1066,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: year
-      value: 2
+      value: 2052
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
-      value: Test2222222222222222222222222222222222
+      value: "Je suis seul. Une temp\xEAte d\u2019une violence sans pr\xE9c\xE9dent
+        a endommag\xE9 notre base et emport\xE9 l\u2019\xE9quipage qui s\u2019y trouvait
+        tandis que je r\xE9parais notre vaisseau. La base a \xE9t\xE9 rendue inutilisable
+        et je n\u2019ai que tr\xE8s peu de ressources pour survivre. Je vous envoie
+        le rapport via cette sonde \xE0 propulsion. Puisse-t-il vous parvenir \xE0
+        temps sur Terre, m\xEAme si j\u2019ai peu d\u2019espoir.  "
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
