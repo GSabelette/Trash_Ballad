@@ -25,7 +25,8 @@ public class TabletController : MonoBehaviour
     [SerializeField] private GameObject tabletModelFront;
     public static int curLogIndex;
     public static int curInventoryIndex;
-    
+
+    private AudioSource audio;
     private void SwitchTabletState()
     {
         if (tabletState == TabletState.FRONT)
@@ -177,6 +178,8 @@ public class TabletController : MonoBehaviour
         tabletModelSide.SetActive(true);
         curLogIndex = 0;
         curInventoryIndex = 0;
+
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -185,6 +188,7 @@ public class TabletController : MonoBehaviour
         if (Input.GetButtonDown("Tablet"))
         {
             SwitchTabletState();
+            audio.Play();
         }
 
         // Possible actions from Tablet Front Status

@@ -6,11 +6,13 @@ public class Collector : MonoBehaviour
 {
     public static int totalCollected = 0;
     private SphereCollider collider;
+    private AudioSource audio;
     
 
     private void Start()
     {
         collider = GetComponent<SphereCollider>();
+        audio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -30,7 +32,8 @@ public class Collector : MonoBehaviour
                         CollectibleDataManager dataManager = contact.gameObject.GetComponent<CollectibleDataManager>();
                         CollectibleData data = dataManager.GetData();
 
-                        
+                        audio.Play();
+
                         LocalTabletManager.collectibleDataList.Add(data);
                         LocalTabletManager.reorderLogList();
 
