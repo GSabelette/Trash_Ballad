@@ -8,13 +8,13 @@ public class PlayerStepManager : MonoBehaviour
 {
     PlayerController player;
 
-    [SerializeField] float stepSpacing = 0.2f;
+    public float stepSpacing = 3f;
     public float currentStepAmount = 0f;
 
-    public UnityEvent OnPlayerStep;
+    //public UnityEvent OnPlayerStep;
     
-    //public delegate void PlayerStepHandler();
-    //public event PlayerStepHandler OnPlayerStep;
+    public delegate void PlayerStepHandler();
+    public event PlayerStepHandler OnPlayerStep;
 
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class PlayerStepManager : MonoBehaviour
         player = GetComponent<PlayerController>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if(player.onGround)
         {
@@ -32,6 +32,7 @@ public class PlayerStepManager : MonoBehaviour
             {
                 // Step
                 OnPlayerStep.Invoke();
+                currentStepAmount -= stepSpacing;
             }
         }
     }

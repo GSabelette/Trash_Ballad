@@ -5,28 +5,22 @@ using UnityEngine;
 public class CameraWobble : MonoBehaviour
 {
 
-    [SerializeField] private float wobbleSpeed;
+    [SerializeField] PlayerStepManager stepManager;
     [SerializeField] private float wobbleHeight;
 
     private Vector3 basePos;
-    private Vector3 prevPos;
-
-
-    private float dist = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         basePos = transform.localPosition;
-        prevPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        prevPos.y = transform.position.y;
-        dist += Vector3.Distance(transform.position, prevPos);
-        transform.localPosition = basePos + new Vector3(0, wobbleHeight * Mathf.Sin(dist * wobbleSpeed), 0);
-        prevPos = transform.position;
+        float step_value = stepManager.currentStepAmount / stepManager.stepSpacing;
+        transform.localPosition = basePos + new Vector3(basePos.x, -Mathf.Cos(step_value * 2 * Mathf.PI) * wobbleHeight, basePos.z);
+        stepManager.currentStepAmount = Mathf.Lerp(stepManager.currentStepAmount, stepManager.stepSpacing / 2f, Time.deltaTime);
     }
 }
