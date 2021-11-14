@@ -22,7 +22,6 @@ public class PlayerStepSounds : MonoBehaviour
 
     void OnPlayerStep()
     {
-        Debug.Log(this.name + ": Step");
         audio.pitch = Random.Range(minPitch, maxPitch);
         if (materialSounds.Length > 0) audio.clip = materialSounds[Random.Range(0, materialSounds.Length)];
         audio.Play();

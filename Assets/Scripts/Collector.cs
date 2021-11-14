@@ -38,7 +38,7 @@ public class Collector : MonoBehaviour
                         {
                             IncrementCount();
                             TrashpileController.ModelAdd();
-                            //LocalTabletManager.changeShipSprite();
+                            LocalTabletManager.changeShipSprite();
 
                         }
 

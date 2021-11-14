@@ -840,6 +840,7 @@ MonoBehaviour:
   spriteLogs: {fileID: 21300000, guid: e224c058a3c63bb4788e1b9517fcd2ec, type: 3}
   spriteTrash: {fileID: 21300000, guid: ffbfc530aca81d946a2b494f6afa5ccd, type: 3}
   spriteShip: {fileID: 21300000, guid: 95e3a808dffd48e4f9e1b2d9c5d9d4fd, type: 3}
+  shipImage: {fileID: 0}
   shipSpriteList:
   - {fileID: 0}
   - {fileID: 0}
@@ -982,7 +983,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1003122364755585693}
-  - component: {fileID: 1003122364755585699}
   - component: {fileID: 1003122364755585692}
   m_Layer: 0
   m_Name: Detector
@@ -1005,19 +1005,6 @@ Transform:
   m_Father: {fileID: 1003122363823985507}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1003122364755585699
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003122364755585694}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 30
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1003122364755585692
 MonoBehaviour:
   m_ObjectHideFlags: 0
