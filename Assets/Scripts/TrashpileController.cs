@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TrashpileController : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class TrashpileController : MonoBehaviour
             {
                 if (contact.gameObject.CompareTag("Player"))
                 {
-                    print("quit");
+                    SceneManager.LoadScene("Credits");
                 }
             }
         }
