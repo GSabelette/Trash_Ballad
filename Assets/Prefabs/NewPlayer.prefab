@@ -1029,7 +1029,7 @@ MonoBehaviour:
   frontTabletLed: {fileID: 567842114540799686}
   ledOn: {fileID: 2100000, guid: 8d63733f9cbcb584498687fdd8e4731f, type: 2}
   ledOff: {fileID: 2100000, guid: a66f10a9fd5d7d94aa4a8bf43b2b764f, type: 2}
-  freqAdjust: 1
+  freqAdjust: 0.5
 --- !u!1 &1003122365052386777
 GameObject:
   m_ObjectHideFlags: 0
