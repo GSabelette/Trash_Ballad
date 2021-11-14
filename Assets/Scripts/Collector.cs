@@ -36,10 +36,10 @@ public class Collector : MonoBehaviour
 
                         if (data.rocketElement)
                         {
+                            print("Increment a l aide");
                             IncrementCount();
-                            TrashpileController.ModelAdd();
                             LocalTabletManager.changeShipSprite();
-
+                            TrashpileController.ModelAdd();
                         }
 
                         contact.gameObject.SetActive(false);

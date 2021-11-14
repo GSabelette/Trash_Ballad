@@ -8,20 +8,31 @@ using System;
 public class LocalTabletManager : MonoBehaviour
 {
     private int LINE_LENGTH = 37;
+    private int INVENTORY_LINE_LENGTH = 32;
 
+    // Logs
     public Image image;
     public TextMeshProUGUI logText;
+
+    // Tablet Front Map Generals
     [SerializeField] public Sprite spriteLogs;
     [SerializeField] public Sprite spriteTrash;
     [SerializeField] public Sprite spriteShip;
     Dictionary<TabletController.TabletFrontState, Sprite> tabletFrontStateMap = new Dictionary<TabletController.TabletFrontState, Sprite>();
+    
+    // Inventory
     public static List<CollectibleData> collectibleDataList = new List<CollectibleData>();
 
+    // Ship 
     [SerializeField] public Image shipImage;
     public static Image staticShipImage;
-
     [SerializeField] public List<Sprite> shipSpriteList;
     public static List<Sprite> staticShipSpriteList;
+
+    // Inventory
+    public Image inventoryImage;
+    public TextMeshProUGUI inventoryText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,7 +126,30 @@ public class LocalTabletManager : MonoBehaviour
 
     public static void changeShipSprite()
     {
+        print("Changing staticShipImage sprite");
         staticShipImage.sprite = staticShipSpriteList[Collector.totalCollected];
+    }
+    
+    public void changeInventoryDisplay(int curInventoryIndex)
+    {
+        inventoryImage.enabled = true;
+        inventoryImage.sprite = collectibleDataList[curInventoryIndex].picture;
+        String description = collectibleDataList[curInventoryIndex].description;
+        String totalString = "";
+        int nbLines = description.Length / INVENTORY_LINE_LENGTH + 1;
+        for (int j = 1; j < nbLines; j++)
+        {
+            totalString += description.Substring((j - 1) * INVENTORY_LINE_LENGTH, INVENTORY_LINE_LENGTH) + "\n";
+        }
+        totalString += description.Substring((nbLines - 1) * INVENTORY_LINE_LENGTH, description.Length - (nbLines - 1) * INVENTORY_LINE_LENGTH);
+
+        inventoryText.text = totalString;
+    }
+
+    public void clearInventoryDisplay()
+    {
+        inventoryImage.enabled = false;
+        inventoryText.text = "";
     }
     // Update is called once per frame
     void Update()
