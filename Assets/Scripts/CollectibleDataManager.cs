@@ -9,7 +9,7 @@ public struct CollectibleData
     public string name;
     public string description;
     public int year;
-    public Texture2D picture;
+    public Sprite picture;
 }
 
 
@@ -19,7 +19,7 @@ public class CollectibleDataManager : MonoBehaviour
     [SerializeField] private string name;
     [SerializeField] private string description;
     [SerializeField] private int year;
-    [SerializeField] private Texture2D picture;
+    [SerializeField] private Sprite picture;
 
 
     public CollectibleData GetData()
