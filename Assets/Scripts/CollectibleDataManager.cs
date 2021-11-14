@@ -5,6 +5,7 @@ using UnityEngine;
 
 public struct CollectibleData
 {
+    public bool rocketElement;
     public string name;
     public string description;
     public int year;
@@ -14,6 +15,7 @@ public struct CollectibleData
 
 public class CollectibleDataManager : MonoBehaviour
 {
+    [SerializeField] private bool rocketElement;
     [SerializeField] private string name;
     [SerializeField] private string description;
     [SerializeField] private int year;
@@ -23,6 +25,7 @@ public class CollectibleDataManager : MonoBehaviour
     public CollectibleData GetData()
     {
         CollectibleData data = new CollectibleData();
+        data.rocketElement = rocketElement;
         data.name = name;
         data.description = description;
         data.year = year;

@@ -15,7 +15,7 @@ public class Collector : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Collect"))
+        if (Input.GetButtonDown("Collect") && TabletCollector.tabletteRecovered)
         {
             Collider[] contactList = Physics.OverlapSphere(collider.bounds.center, collider.radius);
 
@@ -30,18 +30,20 @@ public class Collector : MonoBehaviour
                         CollectibleDataManager dataManager = contact.gameObject.GetComponent<CollectibleDataManager>();
                         CollectibleData data = dataManager.GetData();
 
-                        IncrementCount();
+                        
                         LocalTabletManager.collectibleDataList.Add(data);
                         LocalTabletManager.reorderLogList();
 
+                        if (data.rocketElement)
+                        {
+                            IncrementCount();
+                            TrashpileController.ModelAdd();
+                            //LocalTabletManager.changeShipSprite();
+
+                        }
+
                         contact.gameObject.SetActive(false);
-
-                        TrashpileController.ModelAdd();
-                        
                     }
-                    
-
-
                 }
             }
         }

@@ -42,6 +42,8 @@ public class TabletController : MonoBehaviour
             tabletFrontState = TabletFrontState.LOGS;
             tabletModelFront.GetComponent<LocalTabletManager>().changeSprite(tabletFrontState);
             tabletModelFront.GetComponent<LocalTabletManager>().changeLogText(curLogIndex);
+
+            LocalTabletManager.staticShipImage.enabled = false;
         }
     }
 
@@ -74,11 +76,19 @@ public class TabletController : MonoBehaviour
         {
             tabletModelFront.GetComponent<LocalTabletManager>().changeLogText(curLogIndex);
         }
+        if (tabletFrontState == TabletFrontState.SHIP)
+        {
+            LocalTabletManager.staticShipImage.enabled = true;
+        }
+        else
+        {
+            LocalTabletManager.staticShipImage.enabled = false;
+        }
     }
 
     private void SwitchCurLogIndex(string direction)
     {
-        int maxIndex = Collector.totalCollected;
+        int maxIndex = LocalTabletManager.collectibleDataList.Count;
         if (maxIndex != 0)
         {
             if (direction.Equals("up"))

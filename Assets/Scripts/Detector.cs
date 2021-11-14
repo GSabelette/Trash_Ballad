@@ -12,36 +12,35 @@ public class Detector : MonoBehaviour
     [SerializeField] private Material ledOff;
 
     [SerializeField] private float freqAdjust;
+    [SerializeField] private float variationSpeedAdjust;
 
-    private SphereCollider collider;
+    [SerializeField] private GameObject colletibleList;
+
     private float timer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float closest = collider.radius;
+        float closest = float.PositiveInfinity;
 
-        Collider[] contactList = Physics.OverlapSphere(collider.bounds.center, collider.radius);
-
-        foreach (var contact in contactList)
+        for (int i = 0; i < colletibleList.transform.childCount; i++)
         {
-            if (contact.gameObject.CompareTag("Collectible"))
+            Transform child = colletibleList.transform.GetChild(i);
+
+            float dist = Vector3.Distance(transform.position, child.position);
+            if (dist < closest)
             {
-                float dist = Vector3.Distance(transform.position, contact.transform.position);
-                if ( dist < closest)
-                {
-                    closest = dist;
-                }
+                closest = dist;
             }
         }
 
-        timer += freqAdjust * (collider.radius - closest) * Time.deltaTime;
+
+        timer += freqAdjust * Mathf.Exp(-closest * variationSpeedAdjust) * Time.deltaTime;
 
         float state = Mathf.Sin(timer);
 
