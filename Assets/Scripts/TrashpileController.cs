@@ -8,9 +8,9 @@ public class TrashpileController : MonoBehaviour
     public GameObject model1;
     public GameObject model2;
 
-    private List<GameObject> models = new List<GameObject>(); 
+    public static List<GameObject> models = new List<GameObject>(); 
     //private int modelNumber;
-    private int totalModels = 3;
+    public static int totalModels = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,25 +26,27 @@ public class TrashpileController : MonoBehaviour
         }
     }
 
-    void ModelSwitch() {
-        for (var i = 0; i < totalModels; i++)
+    public static void ModelAdd() {
+        if (Collector.totalCollected != totalModels)
         {
-            if (i != Collector.totalCollected)
-            {   
+            print("Added model " + Collector.totalCollected);
+            models[Collector.totalCollected - 1].SetActive(true);
+        }
+        else
+        {
+            // totalModels - 2 because the last model is going to be used
+            for (int i = 0; i < totalModels - 2; i++)
+            {
                 models[i].SetActive(false);
             }
-            else {
-                print("Switched for model " + i);
-                models[i].SetActive(true);
-            }
+            // Set the last model (spaceship) active
+            models[totalModels - 1].SetActive(true);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Collect")) {
-            ModelSwitch();
-        }
+
     }
 }

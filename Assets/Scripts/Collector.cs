@@ -35,6 +35,8 @@ public class Collector : MonoBehaviour
                         LocalTabletManager.reorderLogList();
 
                         contact.gameObject.SetActive(false);
+
+                        TrashpileController.ModelAdd();
                         
                     }
                     
