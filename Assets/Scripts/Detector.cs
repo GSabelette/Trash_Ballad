@@ -16,21 +16,16 @@ public class Detector : MonoBehaviour
     private SphereCollider collider;
     private float timer = 0;
 
-    private MeshRenderer sideRenderer;
-    private MeshRenderer frontRenderer;
-
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<SphereCollider>();
-        sideRenderer = sideTabletLed.GetComponent<MeshRenderer>();
-        frontRenderer = frontRenderer.GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float closest = float.PositiveInfinity;
+        float closest = collider.radius;
 
         Collider[] contactList = Physics.OverlapSphere(collider.bounds.center, collider.radius);
 
@@ -46,19 +41,29 @@ public class Detector : MonoBehaviour
             }
         }
 
-        timer += freqAdjust * (1 / closest) * Time.deltaTime;
+        timer += freqAdjust * (collider.radius - closest) * Time.deltaTime;
 
         float state = Mathf.Sin(timer);
 
-        if (state > 0)
+
+        MeshRenderer mesh;
+
+        if (TabletController.tabletState == TabletController.TabletState.SIDE)
         {
-            sideRenderer.material = ledOn;
-            frontRenderer.material = ledOn;
+            mesh = sideTabletLed.GetComponent<MeshRenderer>();
         }
         else
         {
-            sideRenderer.material = ledOff;
-            frontRenderer.material = ledOff;
+            mesh = frontTabletLed.GetComponent<MeshRenderer>();
+        }
+
+        if (state > 0)
+        {
+            mesh.material = ledOn;
+        }
+        else
+        {
+            mesh.material = ledOff;
         }
     }
 }
