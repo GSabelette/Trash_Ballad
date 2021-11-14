@@ -16,6 +16,15 @@ public class LocalTabletManager : MonoBehaviour
     [SerializeField] public Sprite spriteShip;
     Dictionary<TabletController.TabletFrontState, Sprite> tabletFrontStateMap = new Dictionary<TabletController.TabletFrontState, Sprite>();
     public static List<CollectibleData> collectibleDataList = new List<CollectibleData>();
+
+    public static Image shipImage;
+    [SerializeField] public static Sprite shipSprite0;
+    [SerializeField] public static Sprite shipSprite1;
+    [SerializeField] public static Sprite shipSprite2;
+    [SerializeField] public static Sprite shipSprite3;
+
+    [SerializeField] public List<Sprite> shipSpriteList = new List<Sprite> { shipSprite0, shipSprite1, shipSprite2, shipSprite3 };
+     
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +48,7 @@ public class LocalTabletManager : MonoBehaviour
         CollectibleData curData = collectibleDataList[logIndex];
         return ("Log " + (logIndex).ToString() + " | year " + curData.year + "\n");
     }
+
     private String fullDisplayLog(int curLogIndex)
     {
         // Middle log
@@ -73,7 +83,7 @@ public class LocalTabletManager : MonoBehaviour
                 }
             }
             // Limit case upper bound
-            else if (curLogIndex == Collector.totalCollected - 1) 
+            else if (curLogIndex == collectibleDataList.Count - 1) 
             {
                 if (collectibleDataList.Count >= 2)
                 {
@@ -101,10 +111,14 @@ public class LocalTabletManager : MonoBehaviour
         logText.text = "";
     }
 
+    public void changeShipSprite()
+    {
+        shipImage.sprite = shipSpriteList[Collector.totalCollected];
+    }
     // Update is called once per frame
     void Update()
     {
-        if ( Collector.totalCollected == 1 && Input.GetButtonDown("Tablet"))
+        if (collectibleDataList.Count == 1 && Input.GetButtonDown("Tablet"))
         {
             changeLogText(0);
         }
