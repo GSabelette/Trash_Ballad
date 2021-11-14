@@ -237,6 +237,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
+--- !u!1 &59262437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4341945181542270516, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+  m_PrefabInstance: {fileID: 523604238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &73518228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6526,11 +6531,19 @@ PrefabInstance:
       value: 2045
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Ici le commandant Keller. Nous pr\xE9parons la premi\xE8re mission
         humaine vers Mars. C\u2019est un moment historique ! Ceci est une br\xE8ve
         routine de v\xE9rification du mat\xE9riel avant le d\xE9marrage. Tout \xE0
         l\u2019air parfaitement fonctionnel. Fin de rapport."
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -6599,6 +6612,10 @@ PrefabInstance:
       value: 2105
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Communiqu\xE9 du 01-31 \xE0 l\u2019intention de Russel-A : L\u2019ISS
         a \xE9t\xE9 d\xE9truite par des d\xE9bris en orbite. Nous ne pourrons pas
@@ -6607,6 +6624,10 @@ PrefabInstance:
         satisfaisants, la quantit\xE9 de d\xE9tritus continue toujours d\u2019augmenter.
         Nous d\xE9conseillons fortement tout voyage Terre-Lune pour le moment tant
         que la situation ne s\u2019am\xE9liore pas."
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -6740,6 +6761,10 @@ PrefabInstance:
       propertyPath: year
       value: 2042
       objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d179907bd2ad09418f6b355c59377d2, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Ce d\xE9tecteur de m\xE9tal d\xE9conne compl\xE8tement. Avec la surabondance
@@ -7196,10 +7221,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3629979559730345, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: shipSpriteList.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629979559730345, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: shipSpriteList.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: bc0c1e60d1df0ad4a944da75611c3c84, type: 3}
+    - target: {fileID: 3629979559730345, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: shipSpriteList.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 564b6cf8a0244734a8363b923b3860e1, type: 3}
+    - target: {fileID: 3629979559730345, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: shipSpriteList.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: adfbd11f61be2034a82da55e5e066239, type: 3}
+    - target: {fileID: 3629979559730345, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: shipSpriteList.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4cf14fdc8d05dce40a6ee9661fcf1001, type: 3}
+    - target: {fileID: 3629979559730345, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: shipSpriteList.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7e05ea58264e3f248a54ef7694411490, type: 3}
+    - target: {fileID: 3629979559730345, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: shipSpriteList.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d25716cb58d4ea499d1070931f99ab9, type: 3}
+    - target: {fileID: 3629979559730345, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: shipSpriteList.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: e95a1b225f31f5044aa400678ac9aed0, type: 3}
+    - target: {fileID: 3629979559730345, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: shipSpriteList.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9767826180885d647b33dfb3c1a3599b, type: 3}
+    - target: {fileID: 1003122363488762736, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003122363749710766, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003122364755585692, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: sideTabletLed
+      value: 
+      objectReference: {fileID: 1930346563}
     - target: {fileID: 1003122364755585692, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
       propertyPath: colletibleList
       value: 
       objectReference: {fileID: 1021707814}
+    - target: {fileID: 1003122364755585692, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: frontTabletLed
+      value: 
+      objectReference: {fileID: 59262437}
+    - target: {fileID: 1003122364755585693, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2253880762561770783, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -7248,6 +7329,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 2564089685170741822, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564089685170741822, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0436195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564089685170741822, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564089685170741822, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99904823
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564089685170741822, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564089685170741822, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550135473967980807, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550135473967980807, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550135473967980807, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550135473967980807, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6066641417328968130, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
       propertyPath: maxPitch
       value: 1.1
@@ -7282,6 +7403,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+--- !u!1 &523604239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7383040999514252265, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+  m_PrefabInstance: {fileID: 523604238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &529554288
 GameObject:
   m_ObjectHideFlags: 0
@@ -7748,10 +7874,18 @@ PrefabInstance:
       value: 2027
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: eaabc633f801c7b46a0b4d3335572dd9, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: " Le nouveau si\xE8ge SkillChair 5 est 15% plus confortable que le pr\xE9c\xE9dent
         ! Qui a besoin d\u2019un SkillChair 4 maintenant ? Je ne peux plus m\u2019asseoir
         dans cette antiquit\xE9\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -7946,12 +8080,20 @@ PrefabInstance:
       value: 2058
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Rapport de mission Ar\xE8s V \u2013 Jour 87 Aucune des exp\xE9riences
         sur la terraformation n\u2019a \xE9t\xE9 fructueuse. Les donn\xE9es obtenues
         ne correspondent toujours pas aux mod\xE8les \xE9tablis et je n\u2019obtiens
         aucun r\xE9sultat probant. Il y a encore beaucoup de choses que nous ignorons
         sur la plan\xE8te rouge. Fin de rapport."
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -8132,6 +8274,10 @@ PrefabInstance:
       propertyPath: year
       value: 2077
       objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: e322f05aed625cc4f9b3b82dbdde7081, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Une gravure indiquant les coordonn\xE9es de la plan\xE8te \xAB Terre
@@ -8471,11 +8617,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
   m_PrefabInstance: {fileID: 879365047}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &760352483 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1003122364619324568, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
-  m_PrefabInstance: {fileID: 523604238}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &775448201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8759,6 +8900,10 @@ PrefabInstance:
       value: 2113
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Rapport de mission Ar\xE8s XIV \u2013 Jour 243 Les derniers tests d\u2019oxyg\xE9nation
         de l\u2019atmosph\xE8re ont \xE9t\xE9 concluants. Cependant, une mise \xE0
@@ -8767,6 +8912,10 @@ PrefabInstance:
         pour l\u2019avenir de la Terre, il parait que la population a commenc\xE9
         \xE0 d\xE9verser les trash cairns dans l\u2019eau. Nous allons s\xE9rieusement
         devoir envisager \xE0 d\xE9m\xE9nager\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -8830,12 +8979,20 @@ PrefabInstance:
       value: 2110
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Communiqu\xE9 du 05-12 \xE0 l\u2019intention du Conseil International
         Terrestre \u2013 Nous refusons d\xE9sormais tout convoi de transfert de d\xE9chet
         en direction de la Lune. Les dix-sept centres de Russel-C et Soyouz-4 sont
         remplis, et nous ne voulons pas terminer entour\xE9s de gratte-ciels d\u2019ordures
         comme chez vous !"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -8964,6 +9121,10 @@ PrefabInstance:
       propertyPath: year
       value: 2014
       objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 97d078b761b8c1b4fb5723a1460cd38b, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: " Ce jukebox n\u2019est plus rien qu\u2019une grosse boite encombrante,
@@ -9530,6 +9691,10 @@ PrefabInstance:
       value: 2097
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Communiqu\xE9 du 04-26 \xE0 l\u2019intention de Russel-A : L\u2019ONU
         a d\xE9clar\xE9 que la quantit\xE9 de d\xE9chet sur Terre \xE9tait probl\xE9matique
@@ -9537,6 +9702,10 @@ PrefabInstance:
         pays songent \xE0 d\xE9localiser une partie de leur d\xE9chet sur la Lune.
         Seriez-vous en mesure de mettre en place des centres de d\xE9p\xF4t pr\xE8s
         de l\u2019une de vos bases lunaires ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -9667,12 +9836,20 @@ PrefabInstance:
       value: 2128
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Requ\xEAte urgente du CIT \xE0 l\u2019intention de Russel-B le 02-29
         : Nos oc\xE9ans ont atteint un niveau critique de pollution qui met gravement
         en danger toute la vie sous-marine. Nous avons besoin de vos filtres aqueux
         de fa\xE7on urgente. C\u2019est le sort de toute l\u2019humanit\xE9 qui est
         en jeu !"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -9903,6 +10080,10 @@ PrefabInstance:
       value: 2052
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: eaabc633f801c7b46a0b4d3335572dd9, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: " Rapport de mission Ar\xE8s III \u2013 Jour 32 Je suis seul. Une temp\xEAte
         d\u2019une violence sans pr\xE9c\xE9dent a endommag\xE9 notre base et emport\xE9
@@ -10033,8 +10214,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: year
-      value: 2070
+      value: 2084
       objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Rapport technique \u2013 L\u2019installation de l\u2019ascenseur spatial
@@ -10043,6 +10228,10 @@ PrefabInstance:
         ! Je me permets cependant d\u2019exprimer ma crainte sur la robustesse des
         conduits, avec cette \xE9paisseur, ils risquent de se faire arracher en deux
         par tout ce qui traine en orbite. Todd J. L \u2013 13/09/2084"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -10205,6 +10394,10 @@ PrefabInstance:
       value: 2130
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 6edb43b4bb5582546b1d041ab1e7444d, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "A quoi bon garder cette canne \xE0 p\xEAche ? \u2026Il n\u2019y a plus
         un poisson dans l\u2019eau."
@@ -10270,6 +10463,10 @@ PrefabInstance:
       propertyPath: year
       value: 2091
       objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: eaabc633f801c7b46a0b4d3335572dd9, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Paula Lewis \u2013 Rapport du 08-21 \xE0 bord de l\u2019ISS \u2013
@@ -10592,7 +10789,7 @@ PrefabInstance:
     - target: {fileID: 8115428630004511353, guid: f37223c8ef734f44685544f289cefb98, type: 3}
       propertyPath: playerTablet
       value: 
-      objectReference: {fileID: 760352483}
+      objectReference: {fileID: 523604239}
     - target: {fileID: 8115428630004511359, guid: f37223c8ef734f44685544f289cefb98, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -12803,6 +13000,10 @@ PrefabInstance:
       value: 2036
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 22da0d2299879b147ba37df533b4d122, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Ma m\xE8re veut absolument que je prenne son ficus porte-bonheur avec
         moi pour ma prochaine mission plan\xE9taire. O\xF9 est-ce que je vais bien
@@ -12994,12 +13195,20 @@ PrefabInstance:
       value: 2070
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: eaabc633f801c7b46a0b4d3335572dd9, type: 3}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Kepler, nous avons eu un probl\xE8me. Le convoi de propergol en direction
         de Russel-B a \xE9t\xE9 percut\xE9, provoquant une br\xE8che dans l\u2019un
         des r\xE9servoirs. Ce combustible est vraiment encombrant \xE0 transporter
         et nous cause r\xE9guli\xE8rement des difficult\xE9s. Vivement qu\u2019on
         passe \xE0 la propulsion plasma qu\u2019on nous promet depuis des ann\xE9es."
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: rocketElement
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -13129,6 +13338,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
   m_PrefabInstance: {fileID: 1486155445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1930346563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4465091864184585590, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+  m_PrefabInstance: {fileID: 523604238}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1933420067 stripped
 Transform:
@@ -13814,6 +14028,10 @@ PrefabInstance:
       propertyPath: year
       value: 2051
       objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 21300000, guid: b5807019054aebf47a45bb95bc23d662, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "le b.a.-ba de la m\xE9canique astronautique pour faire une fus\xE9e
