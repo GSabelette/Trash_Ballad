@@ -37,11 +37,8 @@ public class Collector : MonoBehaviour
                         contact.gameObject.SetActive(false);
 
                         TrashpileController.ModelAdd();
-                        
+                        LocalTabletManager.changeShipSprite();
                     }
-                    
-
-
                 }
             }
         }

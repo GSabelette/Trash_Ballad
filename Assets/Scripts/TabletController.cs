@@ -42,6 +42,8 @@ public class TabletController : MonoBehaviour
             tabletFrontState = TabletFrontState.LOGS;
             tabletModelFront.GetComponent<LocalTabletManager>().changeSprite(tabletFrontState);
             tabletModelFront.GetComponent<LocalTabletManager>().changeLogText(curLogIndex);
+
+            LocalTabletManager.staticShipImage.enabled = false;
         }
     }
 
@@ -76,11 +78,11 @@ public class TabletController : MonoBehaviour
         }
         if (tabletFrontState == TabletFrontState.SHIP)
         {
-            LocalTabletManager.shipImage.enabled = true;
+            LocalTabletManager.staticShipImage.enabled = true;
         }
         else
         {
-            LocalTabletManager.shipImage.enabled = false;
+            LocalTabletManager.staticShipImage.enabled = false;
         }
     }
 
