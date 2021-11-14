@@ -30,14 +30,18 @@ public class Collector : MonoBehaviour
                         CollectibleDataManager dataManager = contact.gameObject.GetComponent<CollectibleDataManager>();
                         CollectibleData data = dataManager.GetData();
 
-                        IncrementCount();
+                        
                         LocalTabletManager.collectibleDataList.Add(data);
                         LocalTabletManager.reorderLogList();
 
-                        contact.gameObject.SetActive(false);
+                        if (data.rocketElement)
+                        {
+                            IncrementCount();
+                            TrashpileController.ModelAdd();
+                            LocalTabletManager.changeShipSprite();
 
-                        TrashpileController.ModelAdd();
-                        LocalTabletManager.changeShipSprite();
+                        }
+                        contact.gameObject.SetActive(false);
                     }
                 }
             }
