@@ -15,7 +15,7 @@ public class Collector : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Collect"))
+        if (Input.GetButtonDown("Collect") && TabletCollector.tabletteRecovered)
         {
             Collider[] contactList = Physics.OverlapSphere(collider.bounds.center, collider.radius);
 
