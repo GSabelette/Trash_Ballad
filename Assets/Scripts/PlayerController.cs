@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
         controller.minMoveDistance = 0f; // To avoid problems with jumping
     }
 
