@@ -3,25 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TrashpileController : MonoBehaviour
-{   
-    public GameObject model0;
-    public GameObject model1;
-    public GameObject model2;
+{
+
+    [SerializeField] private List<GameObject> modelList;
 
     public static List<GameObject> models = new List<GameObject>(); 
     //private int modelNumber;
-    public static int totalModels = 3;
+    public static int totalModels;
+
+
+    private SphereCollider collider;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        //modelNumber = 0;  
-        models.Add(model0);
-        models.Add(model1);
-        models.Add(model2);
+        initData(modelList);
+        collider = GetComponent<SphereCollider>();
+    }
 
-        models[0].SetActive(true);
-        for (var i = 1; i < totalModels; i++)
+    private static void initData(List<GameObject> modelListLocal)
+    {
+        totalModels = modelListLocal.Count;
+
+        for (var i = 0; i < totalModels; i++)
         {
+            models.Add(modelListLocal[i]);
             models[i].SetActive(false);
         }
     }
@@ -35,7 +42,7 @@ public class TrashpileController : MonoBehaviour
         else
         {
             // totalModels - 2 because the last model is going to be used
-            for (int i = 0; i < totalModels - 2; i++)
+            for (int i = 0; i < totalModels - 1; i++)
             {
                 models[i].SetActive(false);
             }
@@ -47,6 +54,17 @@ public class TrashpileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Collect") && Collector.totalCollected == totalModels)
+        {
+            Collider[] contactList = Physics.OverlapSphere(collider.bounds.center, collider.radius);
 
+            foreach (var contact in contactList)
+            {
+                if (contact.gameObject.CompareTag("Player"))
+                {
+                    print("quit");
+                }
+            }
+        }
     }
 }
