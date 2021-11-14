@@ -8,7 +8,6 @@ public class CameraWobble : MonoBehaviour
     [SerializeField] private float wobbleSpeed;
     [SerializeField] private float wobbleHeight;
 
-
     private Vector3 basePos;
     private Vector3 prevPos;
 

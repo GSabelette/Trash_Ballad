@@ -19,17 +19,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float airSmoothSpeed = 1f;
 
     Vector3 dir;
-    Vector3 velocity;
     float targetSpeed;
     float targetGravity;
     float targetSmooth;
     float fallSpeed;
 
-    bool onGround;
-
-    [SerializeField] Transform cam;
-    [SerializeField] float sensitivity = 2;
-    Vector2 mouseRotation;
+    public Vector3 velocity;
+    public bool onGround;
 
     private void Start()
     {
