@@ -6,27 +6,7 @@ public class Collector : MonoBehaviour
 {
     public static int totalCollected = 0;
     private SphereCollider collider;
-    /*
-    private void OnTriggerStay(Collider other)
-    {
-        Collectible collectible = other.gameObject.GetComponent<Collectible>();
-        if (collectible != null && !collectible.isCollected())
-        {
-            if (Input.GetButtonDown("Collect"))
-            {
-                print("collect");
-                collectible.SetCollected();
-                CollectibleDataManager dataManager = other.gameObject.GetComponent<CollectibleDataManager>();
-                CollectibleData data = dataManager.GetData();
-                print(data.name);
-                IncrementCount();
-                LocalTabletManager.collectibleDataList.Add(data);
-                LocalTabletManager.reorderLogList();
-
-            }
-        }
-    }
-    */
+    
 
     private void Start()
     {
