@@ -38,11 +38,11 @@ public class Collector : MonoBehaviour
                         {
                             IncrementCount();
                             TrashpileController.ModelAdd();
-                        }
+                            LocalTabletManager.changeShipSprite();
 
+                        }
                         contact.gameObject.SetActive(false);
                     }
-
                 }
             }
         }

@@ -17,20 +17,22 @@ public class LocalTabletManager : MonoBehaviour
     Dictionary<TabletController.TabletFrontState, Sprite> tabletFrontStateMap = new Dictionary<TabletController.TabletFrontState, Sprite>();
     public static List<CollectibleData> collectibleDataList = new List<CollectibleData>();
 
-    public static Image shipImage;
-    [SerializeField] public static Sprite shipSprite0;
-    [SerializeField] public static Sprite shipSprite1;
-    [SerializeField] public static Sprite shipSprite2;
-    [SerializeField] public static Sprite shipSprite3;
+    [SerializeField] public Image shipImage;
+    public static Image staticShipImage;
 
-    [SerializeField] public List<Sprite> shipSpriteList = new List<Sprite> { shipSprite0, shipSprite1, shipSprite2, shipSprite3 };
-     
+    [SerializeField] public List<Sprite> shipSpriteList;
+    public static List<Sprite> staticShipSpriteList;
     // Start is called before the first frame update
     void Start()
     {
         tabletFrontStateMap[TabletController.TabletFrontState.LOGS] = spriteLogs;
         tabletFrontStateMap[TabletController.TabletFrontState.TRASH] = spriteTrash;
         tabletFrontStateMap[TabletController.TabletFrontState.SHIP] = spriteShip;
+
+        staticShipImage = shipImage;
+        staticShipSpriteList = shipSpriteList;
+        shipImage.enabled = false;
+        staticShipImage.enabled = false;
     }
 
     public void changeSprite(TabletController.TabletFrontState tabletFrontState) 
@@ -111,9 +113,9 @@ public class LocalTabletManager : MonoBehaviour
         logText.text = "";
     }
 
-    public void changeShipSprite()
+    public static void changeShipSprite()
     {
-        shipImage.sprite = shipSpriteList[Collector.totalCollected];
+        staticShipImage.sprite = staticShipSpriteList[Collector.totalCollected];
     }
     // Update is called once per frame
     void Update()
