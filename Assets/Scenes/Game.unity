@@ -6804,7 +6804,7 @@ PrefabInstance:
       propertyPath: description
       value: "Ce d\xE9tecteur de m\xE9tal d\xE9conne compl\xE8tement. Avec la surabondance
         d\u2019ondes \xE9lectromagn\xE9tiques des millions objets connect\xE9s qui
-        nous entourent, il est inu-ti-li-sable"
+        nous entourent, il est inu-ti-li-sable."
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -7906,25 +7906,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: name
-      value: "si\xE8ge"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: year
-      value: 2027
+      value: 2070
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: picture
       value: 
-      objectReference: {fileID: 21300000, guid: eaabc633f801c7b46a0b4d3335572dd9, type: 3}
+      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
-      value: " Le nouveau si\xE8ge SkillChair 5 est 15% plus confortable que le pr\xE9c\xE9dent
-        ! Qui a besoin d\u2019un SkillChair 4 maintenant ? Je ne peux plus m\u2019asseoir
-        dans cette antiquit\xE9\u2026"
+      value: "Kepler, nous avons eu un probl\xE8me. Le convoi de propergol en direction
+        de Russel-B a \xE9t\xE9 percut\xE9, provoquant une br\xE8che dans l\u2019un
+        des r\xE9servoirs. Ce combustible est vraiment encombrant \xE0 transporter
+        et nous cause r\xE9guli\xE8rement des difficult\xE9s. Vivement qu\u2019on
+        passe \xE0 la propulsion plasma qu\u2019on nous promet depuis des ann\xE9es."
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: rocketElement
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -9181,7 +9183,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 97d078b761b8c1b4fb5723a1460cd38b, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
-      value: " Ce jukebox n\u2019est plus rien qu\u2019une grosse boite encombrante,
+      value: "Ce jukebox n\u2019est plus rien qu\u2019une grosse boite encombrante,
         \xE0 quoi bon se trimbaler \xE7a quand on peut \xE9couter de la musique en
         streaming ?"
       objectReference: {fileID: 0}
@@ -9752,7 +9754,7 @@ PrefabInstance:
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: picture
       value: 
-      objectReference: {fileID: 21300000, guid: 55c4ae076e3ecf940ae2ec41e0ab49d2, type: 3}
+      objectReference: {fileID: 21300000, guid: eaabc633f801c7b46a0b4d3335572dd9, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
       value: "Communiqu\xE9 du 04-26 \xE0 l\u2019intention de Russel-A : L\u2019ONU
@@ -9764,7 +9766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: rocketElement
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310943669300465300, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: m_Name
@@ -10149,7 +10151,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: eaabc633f801c7b46a0b4d3335572dd9, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
-      value: " Rapport de mission Ar\xE8s III \u2013 Jour 32 Je suis seul. Une temp\xEAte
+      value: "Rapport de mission Ar\xE8s III \u2013 Jour 32 Je suis seul. Une temp\xEAte
         d\u2019une violence sans pr\xE9c\xE9dent a endommag\xE9 notre base et emport\xE9
         l\u2019\xE9quipage qui s\u2019y trouvait tandis que je r\xE9parais notre
         vaisseau. La base a \xE9t\xE9 rendue inutilisable et je n\u2019ai que tr\xE8s
@@ -13397,8 +13399,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1021707815}
     m_Modifications:
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
+      propertyPath: name
+      value: "si\xE8ge"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: year
-      value: 2070
+      value: 2027
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: picture
@@ -13406,11 +13412,9 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: eaabc633f801c7b46a0b4d3335572dd9, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
-      value: "Kepler, nous avons eu un probl\xE8me. Le convoi de propergol en direction
-        de Russel-B a \xE9t\xE9 percut\xE9, provoquant une br\xE8che dans l\u2019un
-        des r\xE9servoirs. Ce combustible est vraiment encombrant \xE0 transporter
-        et nous cause r\xE9guli\xE8rement des difficult\xE9s. Vivement qu\u2019on
-        passe \xE0 la propulsion plasma qu\u2019on nous promet depuis des ann\xE9es."
+      value: "Le nouveau si\xE8ge SkillChair 5 est 15% plus confortable que le pr\xE9c\xE9dent
+        ! Qui a besoin d\u2019un SkillChair 4 maintenant ? Je ne peux plus m\u2019asseoir
+        dans cette antiquit\xE9\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: rocketElement
@@ -14260,7 +14264,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: b5807019054aebf47a45bb95bc23d662, type: 3}
     - target: {fileID: -6738616715876966112, guid: 60878cb3c714c8549bd8f6b20a72baee, type: 3}
       propertyPath: description
-      value: "le b.a.-ba de la m\xE9canique astronautique pour faire une fus\xE9e
+      value: "Le b.a.-ba de la m\xE9canique astronautique pour faire une fus\xE9e
         rustique. Nous l\u2019emportons toujours avec nous en mission au cas o\xF9
         m\xEAme s\u2019il est relativement d\xE9suet de nos jours\u2026 Nos techniques
         de construction de fus\xE9es ont bien chang\xE9 depuis la fin du XXe si\xE8cle."
