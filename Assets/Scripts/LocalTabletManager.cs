@@ -7,41 +7,40 @@ using TMPro;
 using System;
 public class LocalTabletManager : MonoBehaviour
 {
-    private int LINE_LENGTH = 37;
-    private int INVENTORY_LINE_LENGTH = 32;
-
-    // Logs
+    [Header("Logs")]
     public Image image;
     public TextMeshProUGUI logText;
 
-    // Tablet Front Map Generals
-    [SerializeField] public Sprite spriteLogs;
-    [SerializeField] public Sprite spriteTrash;
-    [SerializeField] public Sprite spriteShip;
-    Dictionary<TabletController.TabletFrontState, Sprite> tabletFrontStateMap = new Dictionary<TabletController.TabletFrontState, Sprite>();
-    
-    // Inventory
-    public static List<CollectibleData> collectibleDataList = new List<CollectibleData>();
+    [Header("Tablet Front Map Generals")]
+    [SerializeField] private Sprite spriteLogs;
+    [SerializeField] private Sprite spriteTrash;
+    [SerializeField] private Sprite spriteShip;
 
-    // Ship 
-    [SerializeField] public Image shipImage;
+    private readonly Dictionary<TabletController.TabletFrontState, Sprite> tabletFrontStateMap = new Dictionary<TabletController.TabletFrontState, Sprite>();
+
+    [Header("Ship")] 
+    [SerializeField] private Image shipImage;
+    [SerializeField] private List<Sprite> shipSpriteList;
+
     public static Image staticShipImage;
-    [SerializeField] public List<Sprite> shipSpriteList;
     public static List<Sprite> staticShipSpriteList;
 
-    // Inventory
+    [Header("Inventory")]
     public Image inventoryImage;
     public TextMeshProUGUI inventoryText;
+
+    public static List<CollectibleData> collectibleDataList = new List<CollectibleData>();
 
     // Start is called before the first frame update
     void Start()
     {
-        tabletFrontStateMap[TabletController.TabletFrontState.LOGS] = spriteLogs;
-        tabletFrontStateMap[TabletController.TabletFrontState.TRASH] = spriteTrash;
-        tabletFrontStateMap[TabletController.TabletFrontState.SHIP] = spriteShip;
+        tabletFrontStateMap.Add(TabletController.TabletFrontState.LOGS, spriteLogs);
+        tabletFrontStateMap.Add(TabletController.TabletFrontState.TRASH, spriteTrash);
+        tabletFrontStateMap.Add(TabletController.TabletFrontState.SHIP, spriteShip);
 
         staticShipImage = shipImage;
         staticShipSpriteList = shipSpriteList;
+
         shipImage.enabled = false;
         staticShipImage.enabled = false;
     }
@@ -56,7 +55,8 @@ public class LocalTabletManager : MonoBehaviour
 
     public void ChangeSprite(TabletController.TabletFrontState tabletFrontState) 
     {
-        image.sprite = tabletFrontStateMap[tabletFrontState];
+        tabletFrontStateMap.TryGetValue(tabletFrontState, out var sprite);
+        if (sprite != null) image.sprite = sprite;
     }
 
     public static void ReorderLogList()
@@ -70,22 +70,10 @@ public class LocalTabletManager : MonoBehaviour
         return ("Log " + (logIndex).ToString() + " | year " + curData.year + "\n");
     }
 
-    private String FullDisplayLog(int curLogIndex)
+    private string FullDisplayLog(int curLogIndex)
     {
-        // Middle log
-        // All the 17 below are = LINE_LENGTH - 20
-        String localString = "";
         CollectibleData curData = collectibleDataList[curLogIndex];
-        int nbLines = (curData.description.Length + 20) / LINE_LENGTH;
-        localString += "Log " + curLogIndex.ToString() + " | year " + curData.year + " : " + curData.description.Substring(0, LINE_LENGTH - 20) + "\n";
-
-        for (int j = 1; j < nbLines; j++)
-        {
-            localString += curData.description.Substring(17 + (j - 1) * LINE_LENGTH, LINE_LENGTH) + "\n";
-        }
-
-        localString += curData.description.Substring(17 + (nbLines - 1) * LINE_LENGTH, curData.description.Length - (17 + (nbLines - 1) * LINE_LENGTH)) + "\n";
-        return localString;
+        return "Log " + curLogIndex.ToString() + " | year " + curData.year + " : " + curData.description + "\n";
     }
 
     public void ChangeLogText(int curLogIndex)
@@ -134,27 +122,19 @@ public class LocalTabletManager : MonoBehaviour
 
     public static void ChangeShipSprite()
     {
-        print("Changing staticShipImage sprite");
         staticShipImage.sprite = staticShipSpriteList[Collector.totalCollected];
     }
     
     public void ChangeInventoryDisplay(int curInventoryIndex)
     {
+        if (collectibleDataList.Count == 0) return;
+
         inventoryImage.enabled = true;
         inventoryImage.sprite = collectibleDataList[curInventoryIndex].picture;
-        String description = collectibleDataList[curInventoryIndex].description;
-        String totalString = "";
-        int nbLines = description.Length / INVENTORY_LINE_LENGTH + 1;
-        for (int j = 1; j < nbLines; j++)
-        {
-            totalString += description.Substring((j - 1) * INVENTORY_LINE_LENGTH, INVENTORY_LINE_LENGTH) + "\n";
-        }
-        totalString += description.Substring((nbLines - 1) * INVENTORY_LINE_LENGTH, description.Length - (nbLines - 1) * INVENTORY_LINE_LENGTH);
-
-        inventoryText.text = totalString;
+        inventoryText.text = collectibleDataList[curInventoryIndex].description;
     }
 
-    public void clearInventoryDisplay()
+    public void ClearInventoryDisplay()
     {
         inventoryImage.enabled = false;
         inventoryText.text = "";

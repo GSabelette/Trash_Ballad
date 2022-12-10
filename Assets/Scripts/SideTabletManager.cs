@@ -6,19 +6,22 @@ using TMPro;
 
 public class SideTabletManager : MonoBehaviour
 {
-    public TextMeshProUGUI nbLogText;
-    // Start is called before the first frame update
+    [SerializeField] private TextMeshProUGUI nbLogText;
+    [SerializeField] private GameObject collectibles;
+
+    private int nbCollectibles;
+
     void Start()
     {
         nbLogText.text = "No Logs Found";
+        nbCollectibles = collectibles.transform.childCount;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (LocalTabletManager.collectibleDataList.Count != 0)
         {
-            nbLogText.text = "Total Logs Acquired : " + LocalTabletManager.collectibleDataList.Count;
+            nbLogText.text = "Logs Acquired : " + LocalTabletManager.collectibleDataList.Count + " / " + nbCollectibles;
         }
     }
 }

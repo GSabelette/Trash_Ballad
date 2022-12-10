@@ -10,12 +10,12 @@ public class TabletCollector : MonoBehaviour
     [SerializeField] private GameObject playerTablet;
     [SerializeField] private GameObject groundTablet;
 
-    private SphereCollider collider;
+    private SphereCollider coll;
 
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<SphereCollider>();
+        coll = GetComponent<SphereCollider>();
         playerTablet.SetActive(false);
     }
 
@@ -24,7 +24,7 @@ public class TabletCollector : MonoBehaviour
     {
         if (Input.GetButtonDown("Collect"))
         {
-            Collider[] contactList = Physics.OverlapSphere(collider.bounds.center, collider.radius);
+            Collider[] contactList = Physics.OverlapSphere(coll.bounds.center, coll.radius);
 
             foreach (var contact in contactList)
             {

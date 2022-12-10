@@ -13,14 +13,14 @@ public class TrashpileController : MonoBehaviour
     public static int totalModels;
 
 
-    private SphereCollider collider;
+    private SphereCollider coll;
 
 
     // Start is called before the first frame update
     void Start()
     {
         initData(modelList);
-        collider = GetComponent<SphereCollider>();
+        coll = GetComponent<SphereCollider>();
     }
 
     private static void initData(List<GameObject> modelListLocal)
@@ -57,7 +57,7 @@ public class TrashpileController : MonoBehaviour
     {
         if (Input.GetButtonDown("Collect") && Collector.totalCollected == totalModels)
         {
-            Collider[] contactList = Physics.OverlapSphere(collider.bounds.center, collider.radius);
+            Collider[] contactList = Physics.OverlapSphere(coll.bounds.center, coll.radius);
 
             foreach (var contact in contactList)
             {

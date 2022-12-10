@@ -27,11 +27,15 @@ public class TabletController : MonoBehaviour
     public static int curLogIndex;
     public static int curInventoryIndex;
 
-    private AudioSource audio;
+    private AudioSource audiosource;
     private LocalTabletManager tabletManager;
 
+    private void Awake()
+    {
+        audiosource = GetComponent<AudioSource>();
+        tabletManager = GetComponentInChildren<LocalTabletManager>();
+    }
 
-    // Start is called before the first frame update
     void Start()
     {
         tabletState = TabletState.SIDE;
@@ -40,18 +44,14 @@ public class TabletController : MonoBehaviour
         tabletModelSide.SetActive(true);
         curLogIndex = 0;
         curInventoryIndex = 0;
-
-        audio = GetComponent<AudioSource>();
-        tabletManager = GetComponent<LocalTabletManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Tablet"))
         {
             SwitchTabletState();
-            audio.Play();
+            audiosource.Play();
         }
 
         // Possible actions from Tablet Front Status
@@ -99,7 +99,7 @@ public class TabletController : MonoBehaviour
             tabletModelSide.SetActive(true);
 
             LocalTabletManager.staticShipImage.enabled = false;
-            tabletManager.clearInventoryDisplay();
+            tabletManager.ClearInventoryDisplay();
         }
         else
         {
@@ -144,7 +144,7 @@ public class TabletController : MonoBehaviour
         // If switching to Inventory
         if (tabletFrontState == TabletFrontState.TRASH)
              tabletManager.ChangeInventoryDisplay(curInventoryIndex);
-        else tabletManager.clearInventoryDisplay();
+        else tabletManager.ClearInventoryDisplay();
     }
 
     private void SwitchCurLogIndex(string direction)

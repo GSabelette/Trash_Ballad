@@ -16,7 +16,7 @@ public struct CollectibleData
 public class CollectibleDataManager : MonoBehaviour
 {
     [SerializeField] private bool rocketElement;
-    [SerializeField] private string name;
+    [SerializeField] private string title;
     [SerializeField] private string description;
     [SerializeField] private int year;
     [SerializeField] private Sprite picture;
@@ -26,7 +26,7 @@ public class CollectibleDataManager : MonoBehaviour
     {
         CollectibleData data = new CollectibleData();
         data.rocketElement = rocketElement;
-        data.name = name;
+        data.name = title;
         data.description = description;
         data.year = year;
         data.picture = picture;
