@@ -49,12 +49,14 @@ public class PlayerController : MonoBehaviour
          * - target_smooth for slower movement changes when in the air
          * - targetGravity for adjustable jump height
          * */
+
         targetSpeed = Input.GetButton("Fire3") ? Mathf.Lerp(targetSpeed, runSpeed, 2f * Time.deltaTime) : speed;
         targetSmooth = onGround ? smoothSpeed : airSmoothSpeed;
         if (fallSpeed < 0) targetGravity = gravityStrong;
 
         // Get normalized input dir
         Vector3 dir = (transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal")).normalized;
+        
         // For smooth movement changes, Lerp the velocity
         velocity = Vector3.Lerp(velocity, new Vector3(dir.x, 0f, dir.z) * targetSpeed, targetSmooth * Time.deltaTime);
 

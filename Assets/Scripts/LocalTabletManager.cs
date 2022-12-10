@@ -46,23 +46,31 @@ public class LocalTabletManager : MonoBehaviour
         staticShipImage.enabled = false;
     }
 
-    public void changeSprite(TabletController.TabletFrontState tabletFrontState) 
+    void Update()
+    {
+        if (collectibleDataList.Count == 1 && Input.GetButtonDown("Tablet"))
+        {
+            ChangeLogText(0);
+        }
+    }
+
+    public void ChangeSprite(TabletController.TabletFrontState tabletFrontState) 
     {
         image.sprite = tabletFrontStateMap[tabletFrontState];
     }
 
-    public static void reorderLogList()
+    public static void ReorderLogList()
     {
         collectibleDataList.Sort((data1, data2) => data1.year.CompareTo(data2.year));
     }
 
-    private String partialDisplayLog(int logIndex)
+    private String PartialDisplayLog(int logIndex)
     {
         CollectibleData curData = collectibleDataList[logIndex];
         return ("Log " + (logIndex).ToString() + " | year " + curData.year + "\n");
     }
 
-    private String fullDisplayLog(int curLogIndex)
+    private String FullDisplayLog(int curLogIndex)
     {
         // Middle log
         // All the 17 below are = LINE_LENGTH - 20
@@ -80,7 +88,7 @@ public class LocalTabletManager : MonoBehaviour
         return localString;
     }
 
-    public void changeLogText(int curLogIndex)
+    public void ChangeLogText(int curLogIndex)
     {
         string totalString = "";
 
@@ -89,10 +97,10 @@ public class LocalTabletManager : MonoBehaviour
             // Limit case lower bound
             if (curLogIndex == 0)
             {
-                totalString += fullDisplayLog(curLogIndex);
+                totalString += FullDisplayLog(curLogIndex);
                 if (collectibleDataList.Count >= 2)
                 {
-                    totalString += partialDisplayLog(curLogIndex + 1);
+                    totalString += PartialDisplayLog(curLogIndex + 1);
                 }
             }
             // Limit case upper bound
@@ -100,37 +108,37 @@ public class LocalTabletManager : MonoBehaviour
             {
                 if (collectibleDataList.Count >= 2)
                 {
-                    totalString += partialDisplayLog(curLogIndex - 1);
+                    totalString += PartialDisplayLog(curLogIndex - 1);
                 }
-                totalString += fullDisplayLog(curLogIndex);
+                totalString += FullDisplayLog(curLogIndex);
             }
             // Normal case
             else
             {
                 // Upper log
-                totalString += partialDisplayLog(curLogIndex - 1);
+                totalString += PartialDisplayLog(curLogIndex - 1);
                 // Main log
-                totalString += fullDisplayLog(curLogIndex);
+                totalString += FullDisplayLog(curLogIndex);
                 // Lower log
-                totalString += partialDisplayLog(curLogIndex + 1);
+                totalString += PartialDisplayLog(curLogIndex + 1);
             }
 
             logText.text = totalString;
         }
     }
 
-    public void clearLogText()
+    public void ClearLogText()
     {
         logText.text = "";
     }
 
-    public static void changeShipSprite()
+    public static void ChangeShipSprite()
     {
         print("Changing staticShipImage sprite");
         staticShipImage.sprite = staticShipSpriteList[Collector.totalCollected];
     }
     
-    public void changeInventoryDisplay(int curInventoryIndex)
+    public void ChangeInventoryDisplay(int curInventoryIndex)
     {
         inventoryImage.enabled = true;
         inventoryImage.sprite = collectibleDataList[curInventoryIndex].picture;
@@ -150,13 +158,5 @@ public class LocalTabletManager : MonoBehaviour
     {
         inventoryImage.enabled = false;
         inventoryText.text = "";
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (collectibleDataList.Count == 1 && Input.GetButtonDown("Tablet"))
-        {
-            changeLogText(0);
-        }
     }
 }

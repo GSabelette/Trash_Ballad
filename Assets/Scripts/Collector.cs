@@ -35,13 +35,13 @@ public class Collector : MonoBehaviour
                         audio.Play();
 
                         LocalTabletManager.collectibleDataList.Add(data);
-                        LocalTabletManager.reorderLogList();
+                        LocalTabletManager.ReorderLogList();
 
                         if (data.rocketElement)
                         {
                             print("Increment a l aide");
                             IncrementCount();
-                            LocalTabletManager.changeShipSprite();
+                            LocalTabletManager.ChangeShipSprite();
                             TrashpileController.ModelAdd();
                         }
 
