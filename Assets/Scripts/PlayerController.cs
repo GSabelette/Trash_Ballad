@@ -18,19 +18,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float smoothSpeed = 8f;
     [SerializeField] float airSmoothSpeed = 1f;
 
-    Vector3 dir;
     float targetSpeed;
     float targetGravity;
     float targetSmooth;
     float fallSpeed;
 
     public Vector3 velocity;
-    public bool onGround;
+    public bool onGround = false;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         controller.minMoveDistance = 0f; // To avoid problems with jumping
+        targetGravity = gravity;
     }
 
     // Update is called once per frame
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         if (fallSpeed < 0) targetGravity = gravityStrong;
 
         // Get normalized input dir
-        dir = (transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal")).normalized;
+        Vector3 dir = (transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal")).normalized;
         // For smooth movement changes, Lerp the velocity
         velocity = Vector3.Lerp(velocity, new Vector3(dir.x, 0f, dir.z) * targetSpeed, targetSmooth * Time.deltaTime);
 
