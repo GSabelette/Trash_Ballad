@@ -8,20 +8,21 @@ public class SideTabletManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nbLogText;
     [SerializeField] private GameObject collectibles;
+    [SerializeField] private LocalTabletManager tabletManager;
 
     private int nbCollectibles;
 
     void Start()
     {
-        nbLogText.text = "No Logs Found";
+        nbLogText.text = "No items found";
         nbCollectibles = collectibles.transform.childCount;
     }
 
     void Update()
     {
-        if (LocalTabletManager.Instance.collectibleDataList.Count != 0)
+        if (tabletManager.CollectiblesData.Count != 0)
         {
-            nbLogText.text = "Logs Acquired : " + LocalTabletManager.Instance.collectibleDataList.Count + " / " + nbCollectibles;
+            nbLogText.text = "Items acquired : " + tabletManager.CollectiblesData.Count + " / " + nbCollectibles;
         }
     }
 }

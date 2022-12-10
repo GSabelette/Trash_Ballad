@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,8 +25,8 @@ public class TabletController : MonoBehaviour
     public static TabletState tabletState;
     public static TabletFrontState tabletFrontState;
 
-    public static int curLogIndex;
-    public static int curInventoryIndex;
+    private int curLogIndex;
+    private int curItemIndex;
 
     private AudioSource audiosource;
     private LocalTabletManager tabletManager;
@@ -42,8 +43,9 @@ public class TabletController : MonoBehaviour
         tabletFrontState = TabletFrontState.LOGS;
         tabletModelFront.SetActive(false);
         tabletModelSide.SetActive(true);
+
         curLogIndex = 0;
-        curInventoryIndex = 0;
+        curItemIndex = 0;
     }
 
     void Update()
@@ -60,32 +62,27 @@ public class TabletController : MonoBehaviour
             // Change columns
             if (Input.GetKeyDown(KeyCode.D))
             {
-                if (tabletFrontState == TabletFrontState.LOGS)
-                {
-                    tabletManager.ClearLogText();
-                }
+                if (tabletFrontState == TabletFrontState.LOGS) tabletManager.ClearLogText();
                 SwitchTabletFrontState("right");
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (tabletFrontState == TabletFrontState.LOGS)
-                {
-                    tabletManager.ClearLogText();
-                }
+                if (tabletFrontState == TabletFrontState.LOGS) tabletManager.ClearLogText();
                 SwitchTabletFrontState("left");
             }
 
             // Possible actions from Tablet Front Log Status
             if (tabletFrontState == TabletFrontState.LOGS)
             {
-                if (Input.GetKeyDown(KeyCode.S)) SwitchCurLogIndex("down");
-                if (Input.GetKeyDown(KeyCode.Z)) SwitchCurLogIndex("up");
+                if (Input.GetKeyDown(KeyCode.S)) UpdateLogIndex("down");
+                if (Input.GetKeyDown(KeyCode.Z)) UpdateLogIndex("up");
             }
+
             // Possible actions from Tablet Front Inventory Status
             if (tabletFrontState == TabletFrontState.TRASH)
             {
-                if (Input.GetKeyDown(KeyCode.S)) SwitchCurInventoryIndex("down");
-                if (Input.GetKeyDown(KeyCode.Z)) SwitchCurInventoryIndex("up");
+                if (Input.GetKeyDown(KeyCode.S)) UpdateInventoryIndex("down");
+                if (Input.GetKeyDown(KeyCode.Z)) UpdateInventoryIndex("up");
             }
         }
     }
@@ -95,10 +92,11 @@ public class TabletController : MonoBehaviour
         if (tabletState == TabletState.FRONT)
         {
             tabletState = TabletState.SIDE;
+
             tabletModelFront.SetActive(false);
             tabletModelSide.SetActive(true);
 
-            LocalTabletManager.Instance.ShowShip(false);
+            tabletManager.ShowShip(false);
             tabletManager.ClearInventoryDisplay();
         }
         else
@@ -137,19 +135,18 @@ public class TabletController : MonoBehaviour
         if (tabletFrontState == TabletFrontState.LOGS) tabletManager.ChangeLogText(curLogIndex);
 
         // If switching to Ship : Enable ship Image | else Disable ship Image
-        if (tabletFrontState == TabletFrontState.SHIP) 
-             LocalTabletManager.Instance.ShowShip(true);
-        else LocalTabletManager.Instance.ShowShip(false);
+        if (tabletFrontState == TabletFrontState.SHIP) tabletManager.ShowShip(true);
+        else tabletManager.ShowShip(false);
 
         // If switching to Inventory
         if (tabletFrontState == TabletFrontState.TRASH)
-             tabletManager.ChangeInventoryDisplay(curInventoryIndex);
+             curItemIndex = tabletManager.UpdateInventoryDisplay(curItemIndex, 0);
         else tabletManager.ClearInventoryDisplay();
     }
 
-    private void SwitchCurLogIndex(string direction)
+    private void UpdateLogIndex(string direction)
     {
-        int maxIndex = LocalTabletManager.Instance.collectibleDataList.Count;
+        int maxIndex = tabletManager.CollectiblesData.Count;
         if (maxIndex != 0)
         {
             if (direction.Equals("up"))
@@ -168,24 +165,9 @@ public class TabletController : MonoBehaviour
         tabletManager.ChangeLogText(curLogIndex);
     }
 
-    private void SwitchCurInventoryIndex(string direction)
+    private void UpdateInventoryIndex(string direction)
     {
-        int maxIndex = LocalTabletManager.Instance.collectibleDataList.Count;
-        if (maxIndex != 0)
-        {
-            if (direction.Equals("up"))
-            {
-                if (curInventoryIndex == 0) curInventoryIndex = maxIndex - 1;
-                else curInventoryIndex--;
-            }
-
-            if (direction.Equals("down"))
-            {
-                if (curInventoryIndex == maxIndex - 1) curInventoryIndex = 0;
-                else curInventoryIndex++;
-            }
-        }
-
-        tabletManager.ChangeInventoryDisplay(curInventoryIndex);
+        if (direction.Equals("up")) curItemIndex = tabletManager.UpdateInventoryDisplay(curItemIndex, -1);
+        if (direction.Equals("down")) curItemIndex = tabletManager.UpdateInventoryDisplay(curItemIndex, 1);        
     }
 }

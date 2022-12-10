@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public struct CollectibleData
 {
     public bool rocketElement;
+    public bool item;
     public string name;
     public string description;
     public int year;
@@ -16,6 +16,7 @@ public struct CollectibleData
 public class CollectibleDataManager : MonoBehaviour
 {
     [SerializeField] private bool rocketElement;
+    [SerializeField] private bool item;
     [SerializeField] private string title;
     [SerializeField] private string description;
     [SerializeField] private int year;
@@ -24,12 +25,16 @@ public class CollectibleDataManager : MonoBehaviour
 
     public CollectibleData GetData()
     {
-        CollectibleData data = new CollectibleData();
-        data.rocketElement = rocketElement;
-        data.name = title;
-        data.description = description;
-        data.year = year;
-        data.picture = picture;
+        CollectibleData data = new CollectibleData
+        {
+            rocketElement = rocketElement,
+            item = item,
+            name = title,
+            description = description,
+            year = year,
+            picture = picture
+        };
+
         return data;
     }
 }

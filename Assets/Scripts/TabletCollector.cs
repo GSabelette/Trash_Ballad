@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class TabletCollector : MonoBehaviour
 {
-    public static bool tabletteRecovered = false;
-
-
     [SerializeField] private GameObject playerTablet;
     [SerializeField] private GameObject groundTablet;
 
@@ -32,15 +29,8 @@ public class TabletCollector : MonoBehaviour
                 {
                     groundTablet.SetActive(false);
                     playerTablet.SetActive(true);
-                    SetTabletteRecovered();
-
                 }
             }
         }
-    }
-
-    private static void SetTabletteRecovered()
-    {
-        tabletteRecovered = true;
     }
 }

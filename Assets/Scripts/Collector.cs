@@ -5,11 +5,13 @@ using System.Linq;
 
 public class Collector : MonoBehaviour
 {
-    public static int totalCollected = 0;
+    [SerializeField] private Detector detector;
+    [SerializeField] private LocalTabletManager tabletManager;
+    [SerializeField] private TrashpileController trashpile;
 
     private SphereCollider coll;
     private AudioSource audiosource;
-    
+
     private void Start()
     {
         coll = GetComponent<SphereCollider>();
@@ -18,13 +20,13 @@ public class Collector : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Collect") && TabletCollector.tabletteRecovered)
+        if (Input.GetButtonDown("Collect"))
         {
             Collider[] contactList = Physics.OverlapSphere(coll.bounds.center, coll.radius);
             
             foreach (var (contact, collectible) in from contact in contactList.Where(contact => contact.gameObject.CompareTag("Collectible"))
                                                    let collectible = contact.gameObject.GetComponent<Collectible>()
-                                                   where !collectible.isCollected()
+                                                   where !collectible.IsCollected()
                                                    select (contact, collectible))
             {
                 collectible.SetCollected();
@@ -33,20 +35,20 @@ public class Collector : MonoBehaviour
                 
                 audiosource.Play();
                 
-                LocalTabletManager.Instance.collectibleDataList.Add(data);
-                LocalTabletManager.Instance.ReorderLogList();
-                
+                tabletManager.CollectiblesData.Add(data);
+                tabletManager.ReorderLogList();
+
                 if (data.rocketElement)
                 {
-                    Collect();
-                    LocalTabletManager.Instance.ChangeShipSprite();
-                    TrashpileController.ModelAdd();
+                    tabletManager.CollectShipPart();
+                    tabletManager.UpdateShip();
+                    trashpile.AddModel();
                 }
+                else if (data.item) tabletManager.CollectItem();
 
-                contact.gameObject.SetActive(false);
+                Destroy(contact.gameObject);
+                detector.ChangeLEDState(false);
             }
         }
     }
-
-    private static void Collect() => totalCollected++;
 }

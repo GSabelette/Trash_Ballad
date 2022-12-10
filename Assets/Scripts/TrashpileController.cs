@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TrashpileController : MonoBehaviour
 {
-
+    [SerializeField] private LocalTabletManager tabletManager;
     [SerializeField] private List<GameObject> modelList;
 
     public static List<GameObject> models = new List<GameObject>(); 
@@ -33,20 +33,17 @@ public class TrashpileController : MonoBehaviour
         }
     }
 
-    public static void ModelAdd() {
+    public void AddModel() {
 
-        if (Collector.totalCollected != totalModels)
+        if (tabletManager.ShipPartsCollected != totalModels)
         {
-            print("Added model " + Collector.totalCollected);
-            models[Collector.totalCollected - 1].SetActive(true);
+            models[tabletManager.ShipPartsCollected - 1].SetActive(true);
         }
         else
         {
             // totalModels - 2 because the last model is going to be used
-            for (int i = 0; i < totalModels - 1; i++)
-            {
-                models[i].SetActive(false);
-            }
+            for (int i = 0; i < totalModels - 1; i++) models[i].SetActive(false);
+
             // Set the last model (spaceship) active
             models[totalModels - 1].SetActive(true);
         }
@@ -55,7 +52,7 @@ public class TrashpileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Collect") && Collector.totalCollected == totalModels)
+        if (Input.GetButtonDown("Collect") && tabletManager.ShipPartsCollected == totalModels)
         {
             Collider[] contactList = Physics.OverlapSphere(coll.bounds.center, coll.radius);
                 

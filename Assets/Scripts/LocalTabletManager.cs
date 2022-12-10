@@ -12,7 +12,7 @@ public class LocalTabletManager : MonoBehaviour
     public Image image;
     public TextMeshProUGUI logText;
 
-    [Header("Tablet Front Map Generals")]
+    [Header("Tablet backgrounds")]
     [SerializeField] private Sprite spriteLogs;
     [SerializeField] private Sprite spriteTrash;
     [SerializeField] private Sprite spriteShip;
@@ -21,20 +21,16 @@ public class LocalTabletManager : MonoBehaviour
 
     [Header("Ship")] 
     [SerializeField] private Image shipImage;
+    [SerializeField] private TextMeshProUGUI shipText;
     [SerializeField] private List<Sprite> shipSpriteList;
 
     [Header("Inventory")]
     public Image inventoryImage;
     public TextMeshProUGUI inventoryText;
 
-    public List<CollectibleData> collectibleDataList = new List<CollectibleData>();
-    public static LocalTabletManager Instance;
-
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-        else Destroy(this);
-    }
+    public List<CollectibleData> CollectiblesData { get; private set; } = new List<CollectibleData>();
+    public int ShipPartsCollected { get; private set; } = 0;
+    private int itemsCollected = 0;
 
     void Start()
     {
@@ -42,18 +38,25 @@ public class LocalTabletManager : MonoBehaviour
         tabletFrontStateMap.Add(TabletController.TabletFrontState.TRASH, spriteTrash);
         tabletFrontStateMap.Add(TabletController.TabletFrontState.SHIP, spriteShip);
 
-        shipImage.enabled = false;
+        ShowShip(false);
     }
 
     void Update()
     {
-        if (collectibleDataList.Count == 1 && Input.GetButtonDown("Tablet"))
+        if (CollectiblesData.Count == 1 && Input.GetButtonDown("Tablet"))
         {
             ChangeLogText(0);
         }
     }
 
-    public void ShowShip(bool active) => shipImage.enabled = active;
+    public void CollectShipPart() => ShipPartsCollected++;
+    public void CollectItem() => itemsCollected++;
+
+    public void ShowShip(bool active)
+    {
+        shipImage.enabled = active;
+        shipText.enabled = active;
+    }
 
     public void ChangeSprite(TabletController.TabletFrontState tabletFrontState) 
     {
@@ -63,77 +66,75 @@ public class LocalTabletManager : MonoBehaviour
 
     public void ReorderLogList()
     {
-        collectibleDataList.Sort((data1, data2) => data1.year.CompareTo(data2.year));
+        CollectiblesData.Sort((data1, data2) => data1.year.CompareTo(data2.year));
     }
 
     private String PartialDisplayLog(int logIndex)
     {
-        CollectibleData curData = collectibleDataList[logIndex];
+        CollectibleData curData = CollectiblesData[logIndex];
         return ("Log " + (logIndex).ToString() + " | year " + curData.year + "\n");
     }
 
     private string FullDisplayLog(int curLogIndex)
     {
-        CollectibleData curData = collectibleDataList[curLogIndex];
+        CollectibleData curData = CollectiblesData[curLogIndex];
         return "Log " + curLogIndex.ToString() + " | year " + curData.year + " : " + curData.description + "\n";
     }
 
     public void ChangeLogText(int curLogIndex)
     {
         string totalString = "";
+        int nbCollectible = CollectiblesData.Count;
 
-        if (collectibleDataList.Count != 0)
+        if (nbCollectible == 0) return;
+
+        if (curLogIndex > 0)
         {
-            // Limit case lower bound
-            if (curLogIndex == 0)
-            {
-                totalString += FullDisplayLog(curLogIndex);
-                if (collectibleDataList.Count >= 2)
-                {
-                    totalString += PartialDisplayLog(curLogIndex + 1);
-                }
-            }
-            // Limit case upper bound
-            else if (curLogIndex == collectibleDataList.Count - 1) 
-            {
-                if (collectibleDataList.Count >= 2)
-                {
-                    totalString += PartialDisplayLog(curLogIndex - 1);
-                }
-                totalString += FullDisplayLog(curLogIndex);
-            }
-            // Normal case
-            else
-            {
-                // Upper log
-                totalString += PartialDisplayLog(curLogIndex - 1);
-                // Main log
-                totalString += FullDisplayLog(curLogIndex);
-                // Lower log
-                totalString += PartialDisplayLog(curLogIndex + 1);
-            }
-
-            logText.text = totalString;
+            totalString += PartialDisplayLog(curLogIndex - 1);
+            totalString += "\n";
         }
+
+        totalString += FullDisplayLog(curLogIndex);
+
+        if (curLogIndex + 1 < nbCollectible)
+        {
+            totalString += "\n";
+            totalString += PartialDisplayLog(curLogIndex + 1);
+        }
+
+        logText.text = totalString;
     }
 
-    public void ClearLogText()
-    {
-        logText.text = "";
-    }
+    public void ClearLogText() => logText.text = "";
 
-    public void ChangeShipSprite()
+    public void UpdateShip()
     {
-        shipImage.sprite = shipSpriteList[Collector.totalCollected];
+        shipImage.sprite = shipSpriteList[ShipPartsCollected];
+        shipText.text = "Ship parts : " + ShipPartsCollected + " / " + (shipSpriteList.Count - 1).ToString();
     }
     
-    public void ChangeInventoryDisplay(int curInventoryIndex)
+    public int UpdateInventoryDisplay(int curIndex, int change)
     {
-        if (collectibleDataList.Count == 0) return;
+        if (itemsCollected == 0) return curIndex;
+
+        int index = ClampIndex(curIndex + change);
+        if (change == 0) change = 1;
+
+        while (!CollectiblesData[index].item) index = ClampIndex(index + change);  
 
         inventoryImage.enabled = true;
-        inventoryImage.sprite = collectibleDataList[curInventoryIndex].picture;
-        inventoryText.text = collectibleDataList[curInventoryIndex].description;
+        inventoryImage.sprite = CollectiblesData[index].picture;
+        inventoryText.text = CollectiblesData[index].description;
+
+        return index;
+    }
+
+    private int ClampIndex(int index)
+    {
+        if (index < 0) index = CollectiblesData.Count - 1;
+        if (index >= CollectiblesData.Count) index = 0;
+
+        return index;
     }
 
     public void ClearInventoryDisplay()

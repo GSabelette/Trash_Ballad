@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f7cee272d1f649a409519f9d53174ad1
+guid: 17653dbd30d0c9045bc0ae3df16c0171
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Coolvetica
+  - Gidolinya
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
