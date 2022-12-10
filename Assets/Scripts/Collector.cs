@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Collector : MonoBehaviour
 {
     public static int totalCollected = 0;
+
     private SphereCollider coll;
     private AudioSource audiosource;
     
-
     private void Start()
     {
         coll = GetComponent<SphereCollider>();
@@ -20,34 +21,32 @@ public class Collector : MonoBehaviour
         if (Input.GetButtonDown("Collect") && TabletCollector.tabletteRecovered)
         {
             Collider[] contactList = Physics.OverlapSphere(coll.bounds.center, coll.radius);
-
-            foreach (var contact in contactList)
+            
+            foreach (var (contact, collectible) in from contact in contactList.Where(contact => contact.gameObject.CompareTag("Collectible"))
+                                                   let collectible = contact.gameObject.GetComponent<Collectible>()
+                                                   where !collectible.isCollected()
+                                                   select (contact, collectible))
             {
-                if (contact.gameObject.CompareTag("Collectible"))
+                collectible.SetCollected();
+                CollectibleDataManager dataManager = contact.gameObject.GetComponent<CollectibleDataManager>();
+                CollectibleData data = dataManager.GetData();
+                
+                audiosource.Play();
+                
+                LocalTabletManager.Instance.collectibleDataList.Add(data);
+                LocalTabletManager.Instance.ReorderLogList();
+                
+                if (data.rocketElement)
                 {
-                    Collectible collectible = contact.gameObject.GetComponent<Collectible>();
-                    if (!collectible.isCollected())
-                    {
-                        collectible.SetCollected();
-                        CollectibleDataManager dataManager = contact.gameObject.GetComponent<CollectibleDataManager>();
-                        CollectibleData data = dataManager.GetData();
-
-                        audiosource.Play();
-
-                        LocalTabletManager.collectibleDataList.Add(data);
-                        LocalTabletManager.ReorderLogList();
-
-                        if (data.rocketElement)
-                        {
-                            totalCollected++;
-                            LocalTabletManager.ChangeShipSprite();
-                            TrashpileController.ModelAdd();
-                        }
-
-                        contact.gameObject.SetActive(false);
-                    }
+                    Collect();
+                    LocalTabletManager.Instance.ChangeShipSprite();
+                    TrashpileController.ModelAdd();
                 }
+
+                contact.gameObject.SetActive(false);
             }
         }
     }
+
+    private static void Collect() => totalCollected++;
 }

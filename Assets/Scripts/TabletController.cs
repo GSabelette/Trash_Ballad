@@ -98,7 +98,7 @@ public class TabletController : MonoBehaviour
             tabletModelFront.SetActive(false);
             tabletModelSide.SetActive(true);
 
-            LocalTabletManager.staticShipImage.enabled = false;
+            LocalTabletManager.Instance.ShowShip(false);
             tabletManager.ClearInventoryDisplay();
         }
         else
@@ -138,8 +138,8 @@ public class TabletController : MonoBehaviour
 
         // If switching to Ship : Enable ship Image | else Disable ship Image
         if (tabletFrontState == TabletFrontState.SHIP) 
-             LocalTabletManager.staticShipImage.enabled = true;
-        else LocalTabletManager.staticShipImage.enabled = false;
+             LocalTabletManager.Instance.ShowShip(true);
+        else LocalTabletManager.Instance.ShowShip(false);
 
         // If switching to Inventory
         if (tabletFrontState == TabletFrontState.TRASH)
@@ -149,7 +149,7 @@ public class TabletController : MonoBehaviour
 
     private void SwitchCurLogIndex(string direction)
     {
-        int maxIndex = LocalTabletManager.collectibleDataList.Count;
+        int maxIndex = LocalTabletManager.Instance.collectibleDataList.Count;
         if (maxIndex != 0)
         {
             if (direction.Equals("up"))
@@ -170,7 +170,7 @@ public class TabletController : MonoBehaviour
 
     private void SwitchCurInventoryIndex(string direction)
     {
-        int maxIndex = LocalTabletManager.collectibleDataList.Count;
+        int maxIndex = LocalTabletManager.Instance.collectibleDataList.Count;
         if (maxIndex != 0)
         {
             if (direction.Equals("up"))

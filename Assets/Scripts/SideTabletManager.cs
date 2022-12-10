@@ -19,9 +19,9 @@ public class SideTabletManager : MonoBehaviour
 
     void Update()
     {
-        if (LocalTabletManager.collectibleDataList.Count != 0)
+        if (LocalTabletManager.Instance.collectibleDataList.Count != 0)
         {
-            nbLogText.text = "Logs Acquired : " + LocalTabletManager.collectibleDataList.Count + " / " + nbCollectibles;
+            nbLogText.text = "Logs Acquired : " + LocalTabletManager.Instance.collectibleDataList.Count + " / " + nbCollectibles;
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using TMPro;
 using System;
+
 public class LocalTabletManager : MonoBehaviour
 {
     [Header("Logs")]
@@ -22,27 +23,26 @@ public class LocalTabletManager : MonoBehaviour
     [SerializeField] private Image shipImage;
     [SerializeField] private List<Sprite> shipSpriteList;
 
-    public static Image staticShipImage;
-    public static List<Sprite> staticShipSpriteList;
-
     [Header("Inventory")]
     public Image inventoryImage;
     public TextMeshProUGUI inventoryText;
 
-    public static List<CollectibleData> collectibleDataList = new List<CollectibleData>();
+    public List<CollectibleData> collectibleDataList = new List<CollectibleData>();
+    public static LocalTabletManager Instance;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(this);
+    }
+
     void Start()
     {
         tabletFrontStateMap.Add(TabletController.TabletFrontState.LOGS, spriteLogs);
         tabletFrontStateMap.Add(TabletController.TabletFrontState.TRASH, spriteTrash);
         tabletFrontStateMap.Add(TabletController.TabletFrontState.SHIP, spriteShip);
 
-        staticShipImage = shipImage;
-        staticShipSpriteList = shipSpriteList;
-
         shipImage.enabled = false;
-        staticShipImage.enabled = false;
     }
 
     void Update()
@@ -53,13 +53,15 @@ public class LocalTabletManager : MonoBehaviour
         }
     }
 
+    public void ShowShip(bool active) => shipImage.enabled = active;
+
     public void ChangeSprite(TabletController.TabletFrontState tabletFrontState) 
     {
         tabletFrontStateMap.TryGetValue(tabletFrontState, out var sprite);
         if (sprite != null) image.sprite = sprite;
     }
 
-    public static void ReorderLogList()
+    public void ReorderLogList()
     {
         collectibleDataList.Sort((data1, data2) => data1.year.CompareTo(data2.year));
     }
@@ -120,9 +122,9 @@ public class LocalTabletManager : MonoBehaviour
         logText.text = "";
     }
 
-    public static void ChangeShipSprite()
+    public void ChangeShipSprite()
     {
-        staticShipImage.sprite = staticShipSpriteList[Collector.totalCollected];
+        shipImage.sprite = shipSpriteList[Collector.totalCollected];
     }
     
     public void ChangeInventoryDisplay(int curInventoryIndex)

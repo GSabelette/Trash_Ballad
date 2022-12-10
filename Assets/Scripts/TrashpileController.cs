@@ -9,7 +9,6 @@ public class TrashpileController : MonoBehaviour
     [SerializeField] private List<GameObject> modelList;
 
     public static List<GameObject> models = new List<GameObject>(); 
-    //private int modelNumber;
     public static int totalModels;
 
 
@@ -19,11 +18,11 @@ public class TrashpileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initData(modelList);
+        InitData(modelList);
         coll = GetComponent<SphereCollider>();
     }
 
-    private static void initData(List<GameObject> modelListLocal)
+    private static void InitData(List<GameObject> modelListLocal)
     {
         totalModels = modelListLocal.Count;
 
@@ -35,6 +34,7 @@ public class TrashpileController : MonoBehaviour
     }
 
     public static void ModelAdd() {
+
         if (Collector.totalCollected != totalModels)
         {
             print("Added model " + Collector.totalCollected);
@@ -58,13 +58,10 @@ public class TrashpileController : MonoBehaviour
         if (Input.GetButtonDown("Collect") && Collector.totalCollected == totalModels)
         {
             Collider[] contactList = Physics.OverlapSphere(coll.bounds.center, coll.radius);
-
+                
             foreach (var contact in contactList)
             {
-                if (contact.gameObject.CompareTag("Player"))
-                {
-                    SceneManager.LoadScene("Credits");
-                }
+                if (contact.gameObject.CompareTag("Player")) SceneManager.LoadScene("Credits");
             }
         }
     }
