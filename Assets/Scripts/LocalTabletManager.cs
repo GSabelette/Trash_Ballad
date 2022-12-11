@@ -25,20 +25,25 @@ public class LocalTabletManager : MonoBehaviour
     [SerializeField] private List<Sprite> shipSpriteList;
 
     [Header("Inventory")]
-    public Image inventoryImage;
-    public TextMeshProUGUI inventoryText;
+    [SerializeField] private Image inventoryImage;
+    [SerializeField] private TextMeshProUGUI inventoryText;
+    [SerializeField] private GameObject inventoryContainer;
+    
+    private Image[] inventoryIcons;
 
     public List<CollectibleData> CollectiblesData { get; private set; } = new List<CollectibleData>();
     public int ShipPartsCollected { get; private set; } = 0;
     private int itemsCollected = 0;
 
-    void Start()
+    void Awake()
     {
         tabletFrontStateMap.Add(TabletController.TabletFrontState.LOGS, spriteLogs);
         tabletFrontStateMap.Add(TabletController.TabletFrontState.TRASH, spriteTrash);
         tabletFrontStateMap.Add(TabletController.TabletFrontState.SHIP, spriteShip);
 
         ShowShip(false);
+        inventoryIcons = inventoryContainer.GetComponentsInChildren<Image>();
+        print(inventoryIcons.Length);
     }
 
     void Update()
@@ -48,9 +53,6 @@ public class LocalTabletManager : MonoBehaviour
             ChangeLogText(0);
         }
     }
-
-    public void CollectShipPart() => ShipPartsCollected++;
-    public void CollectItem() => itemsCollected++;
 
     public void ShowShip(bool active)
     {
@@ -106,6 +108,18 @@ public class LocalTabletManager : MonoBehaviour
     }
 
     public void ClearLogText() => logText.text = "";
+
+    public void CollectItem(Sprite icon)
+    {
+        inventoryIcons[itemsCollected].sprite = icon;
+        itemsCollected++;
+    }
+
+    public void CollectShipPart()
+    {
+        ShipPartsCollected++;
+        UpdateShip();
+    }
 
     public void UpdateShip()
     {

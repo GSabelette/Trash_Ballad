@@ -41,10 +41,9 @@ public class Collector : MonoBehaviour
                 if (data.rocketElement)
                 {
                     tabletManager.CollectShipPart();
-                    tabletManager.UpdateShip();
                     trashpile.AddModel();
                 }
-                else if (data.item) tabletManager.CollectItem();
+                else if (data.item) tabletManager.CollectItem(data.picture);
 
                 Destroy(contact.gameObject);
                 detector.ChangeLEDState(false);
