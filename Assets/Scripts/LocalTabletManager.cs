@@ -137,12 +137,9 @@ public class LocalTabletManager : MonoBehaviour
     public void DisplayInventory(bool active)
     {
         inventoryContainer.SetActive(active);
+        inventoryImage.enabled = active;
 
-        if(!active)
-        {
-            inventoryText.text = "";
-            inventoryContainer.SetActive(false);
-        }
+        if (!active) inventoryText.text = "";
     }
 
     public int UpdateInventoryDisplay(int curIndex, int change)
