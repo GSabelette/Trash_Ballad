@@ -43,7 +43,6 @@ public class LocalTabletManager : MonoBehaviour
 
         ShowShip(false);
         inventoryIcons = inventoryContainer.GetComponentsInChildren<Image>();
-        print(inventoryIcons.Length);
     }
 
     void Update()
@@ -127,6 +126,8 @@ public class LocalTabletManager : MonoBehaviour
         shipText.text = "Ship parts : " + ShipPartsCollected + " / " + (shipSpriteList.Count - 1).ToString();
     }
     
+    public void DisplayInventoryIcons() => inventoryContainer.SetActive(true);
+
     public int UpdateInventoryDisplay(int curIndex, int change)
     {
         if (itemsCollected == 0) return curIndex;
@@ -155,5 +156,6 @@ public class LocalTabletManager : MonoBehaviour
     {
         inventoryImage.enabled = false;
         inventoryText.text = "";
+        inventoryContainer.SetActive(false);
     }
 }

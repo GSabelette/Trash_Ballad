@@ -140,7 +140,10 @@ public class TabletController : MonoBehaviour
 
         // If switching to Inventory
         if (tabletFrontState == TabletFrontState.TRASH)
-             curItemIndex = tabletManager.UpdateInventoryDisplay(curItemIndex, 0);
+        {
+            tabletManager.DisplayInventoryIcons();
+            curItemIndex = tabletManager.UpdateInventoryDisplay(curItemIndex, 0);
+        }     
         else tabletManager.ClearInventoryDisplay();
     }
 

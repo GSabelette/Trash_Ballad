@@ -2469,6 +2469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 800172472673512175, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1003122363749710765, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
       propertyPath: trashpile
       value: 
