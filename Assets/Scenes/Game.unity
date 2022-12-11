@@ -2577,10 +2577,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 175
       objectReference: {fileID: 0}
-    - target: {fileID: 2711681480505336234, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ffbfc530aca81d946a2b494f6afa5ccd, type: 3}
     - target: {fileID: 3462039934542505678, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
       propertyPath: m_Name
       value: Inventory Image

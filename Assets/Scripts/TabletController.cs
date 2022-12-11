@@ -16,11 +16,15 @@ public class TabletController : MonoBehaviour
     {
         LOGS,
         TRASH,
-        SHIP
+        SHIP,
+        SETTINGS
     };
 
     [SerializeField] private GameObject tabletModelSide;
     [SerializeField] private GameObject tabletModelFront;
+
+    [Header("Settings")]
+    [SerializeField] private Selectable firstSettingsButton;
 
     public static TabletState tabletState;
     public static TabletFrontState tabletFrontState;
@@ -60,16 +64,9 @@ public class TabletController : MonoBehaviour
         if (tabletState == TabletState.FRONT)
         {
             // Change columns
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                if (tabletFrontState == TabletFrontState.LOGS) tabletManager.ClearLogText();
-                SwitchTabletFrontState("right");
-            }
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (tabletFrontState == TabletFrontState.LOGS) tabletManager.ClearLogText();
-                SwitchTabletFrontState("left");
-            }
+            if (Input.GetKeyDown(KeyCode.D)) SwitchTabletFrontState("right");
+            if (Input.GetKeyDown(KeyCode.Q)) SwitchTabletFrontState("left");
+
 
             // Possible actions from Tablet Front Log Status
             if (tabletFrontState == TabletFrontState.LOGS)
@@ -97,7 +94,8 @@ public class TabletController : MonoBehaviour
             tabletModelSide.SetActive(true);
 
             tabletManager.ShowShip(false);
-            tabletManager.ClearInventoryDisplay();
+            tabletManager.DisplayInventory(false);
+            tabletManager.DisplaySettings(false);
         }
         else
         {
@@ -116,15 +114,17 @@ public class TabletController : MonoBehaviour
     }
 
     private void SwitchTabletFrontState(string direction)
-    {   
+    {
+        audiosource.Play();
+
         if (direction.Equals("right"))
         {
-            if (tabletFrontState == TabletFrontState.SHIP) tabletFrontState = TabletFrontState.LOGS;
+            if (tabletFrontState == TabletFrontState.SETTINGS) tabletFrontState = TabletFrontState.LOGS;
             else tabletFrontState++;
         }
         if (direction.Equals("left"))
         {
-            if (tabletFrontState == TabletFrontState.LOGS) tabletFrontState = TabletFrontState.SHIP;
+            if (tabletFrontState == TabletFrontState.LOGS) tabletFrontState = TabletFrontState.SETTINGS;
             else tabletFrontState--;
         }
 
@@ -133,18 +133,26 @@ public class TabletController : MonoBehaviour
 
         // If switching to Logs : Change log text
         if (tabletFrontState == TabletFrontState.LOGS) tabletManager.ChangeLogText(curLogIndex);
+        else tabletManager.ClearLogText();
 
         // If switching to Ship : Enable ship Image | else Disable ship Image
-        if (tabletFrontState == TabletFrontState.SHIP) tabletManager.ShowShip(true);
-        else tabletManager.ShowShip(false);
+        tabletManager.ShowShip(tabletFrontState == TabletFrontState.SHIP);
 
         // If switching to Inventory
         if (tabletFrontState == TabletFrontState.TRASH)
         {
-            tabletManager.DisplayInventoryIcons();
+            tabletManager.DisplayInventory(true);
             curItemIndex = tabletManager.UpdateInventoryDisplay(curItemIndex, 0);
         }     
-        else tabletManager.ClearInventoryDisplay();
+        else tabletManager.DisplayInventory(false);
+
+        //If switching to Settings
+        if (tabletFrontState == TabletFrontState.SETTINGS)
+        {
+            tabletManager.DisplaySettings(true);
+            firstSettingsButton.Select();
+        }
+        else tabletManager.DisplaySettings(false);
     }
 
     private void UpdateLogIndex(string direction)
@@ -173,4 +181,6 @@ public class TabletController : MonoBehaviour
         if (direction.Equals("up")) curItemIndex = tabletManager.UpdateInventoryDisplay(curItemIndex, -1);
         if (direction.Equals("down")) curItemIndex = tabletManager.UpdateInventoryDisplay(curItemIndex, 1);        
     }
+
+    public void Quit() => Application.Quit();
 }

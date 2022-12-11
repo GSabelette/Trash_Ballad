@@ -16,6 +16,7 @@ public class LocalTabletManager : MonoBehaviour
     [SerializeField] private Sprite spriteLogs;
     [SerializeField] private Sprite spriteTrash;
     [SerializeField] private Sprite spriteShip;
+    [SerializeField] private Sprite spriteSettings;
 
     private readonly Dictionary<TabletController.TabletFrontState, Sprite> tabletFrontStateMap = new Dictionary<TabletController.TabletFrontState, Sprite>();
 
@@ -28,7 +29,10 @@ public class LocalTabletManager : MonoBehaviour
     [SerializeField] private Image inventoryImage;
     [SerializeField] private TextMeshProUGUI inventoryText;
     [SerializeField] private GameObject inventoryContainer;
-    
+
+    [Header("Settings")]
+    [SerializeField] private GameObject settingsCanvas;
+
     private Image[] inventoryIcons;
 
     public List<CollectibleData> CollectiblesData { get; private set; } = new List<CollectibleData>();
@@ -40,9 +44,13 @@ public class LocalTabletManager : MonoBehaviour
         tabletFrontStateMap.Add(TabletController.TabletFrontState.LOGS, spriteLogs);
         tabletFrontStateMap.Add(TabletController.TabletFrontState.TRASH, spriteTrash);
         tabletFrontStateMap.Add(TabletController.TabletFrontState.SHIP, spriteShip);
+        tabletFrontStateMap.Add(TabletController.TabletFrontState.SETTINGS, spriteSettings);
+
+        inventoryIcons = inventoryContainer.GetComponentsInChildren<Image>();
 
         ShowShip(false);
-        inventoryIcons = inventoryContainer.GetComponentsInChildren<Image>();
+        DisplayInventory(false);
+        DisplaySettings(false);
     }
 
     void Update()
@@ -51,12 +59,6 @@ public class LocalTabletManager : MonoBehaviour
         {
             ChangeLogText(0);
         }
-    }
-
-    public void ShowShip(bool active)
-    {
-        shipImage.enabled = active;
-        shipText.enabled = active;
     }
 
     public void ChangeSprite(TabletController.TabletFrontState tabletFrontState) 
@@ -120,13 +122,28 @@ public class LocalTabletManager : MonoBehaviour
         UpdateShip();
     }
 
+    public void ShowShip(bool active)
+    {
+        shipImage.enabled = active;
+        shipText.enabled = active;
+    }
+
     public void UpdateShip()
     {
         shipImage.sprite = shipSpriteList[ShipPartsCollected];
         shipText.text = "Ship parts : " + ShipPartsCollected + " / " + (shipSpriteList.Count - 1).ToString();
     }
-    
-    public void DisplayInventoryIcons() => inventoryContainer.SetActive(true);
+
+    public void DisplayInventory(bool active)
+    {
+        inventoryContainer.SetActive(active);
+
+        if(!active)
+        {
+            inventoryText.text = "";
+            inventoryContainer.SetActive(false);
+        }
+    }
 
     public int UpdateInventoryDisplay(int curIndex, int change)
     {
@@ -152,10 +169,5 @@ public class LocalTabletManager : MonoBehaviour
         return index;
     }
 
-    public void ClearInventoryDisplay()
-    {
-        inventoryImage.enabled = false;
-        inventoryText.text = "";
-        inventoryContainer.SetActive(false);
-    }
+    public void DisplaySettings(bool active) => settingsCanvas.SetActive(active);
 }
