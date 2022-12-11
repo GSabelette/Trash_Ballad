@@ -2477,10 +2477,6 @@ PrefabInstance:
       propertyPath: trashpile
       value: 
       objectReference: {fileID: 266343976}
-    - target: {fileID: 1003122363823985502, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
-      propertyPath: runSpeed
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 1003122363823985503, guid: 904451d9946dab84fb4e533bc6ebdbd5, type: 3}
       propertyPath: m_Name
       value: Player
